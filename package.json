@@ -1,0 +1,59 @@
+{
+  "name": "root",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattrglobal/jsonld-lint"
+  },
+  "bugs": {
+    "url": "https://github.com/mattrglobal/jsonld-lint/issues"
+  },
+  "homepage": "https://github.com/mattrglobal/jsonld-lint#readme",
+  "useWorkspaces": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "jest",
+    "build": "lerna run build",
+    "format": "prettier --write \"**/*.ts\" \"**/*.md\"  \"!**/lib/**\"",
+    "pre-pr": "yarn format && yarn lint:fix && yarn build && yarn test",
+    "lint": "prettier --check \"**/*.ts\" \"**/*.md\" \"!**/lib/**\" && tslint --project ./tsconfig.json",
+    "lint:fix": "prettier --check \"**/*.ts\" \"**/*.md\" \"!**/lib/**\" && tslint --project ./tsconfig.json --fix",
+    "publish:unstable": "lerna publish --canary --dist-tag=unstable --preid=unstable --yes --exact",
+    "publish:release": "lerna publish minor --yes --exact"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "8.1.0",
+    "@commitlint/config-conventional": "8.1.0",
+    "cz-conventional-changelog": "3.0.2",
+    "husky": "3.0.4",
+    "jest": "24.9.0",
+    "jest-html-reporters": "1.2.0",
+    "lerna": "3.16.4",
+    "prettier": "1.19.1",
+    "pretty-quick": "1.11.1",
+    "ts-jest": "24.0.2",
+    "tslint": "5.16.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-consistent-codestyle": "1.15.1",
+    "tslint-immutable": "6.0.0",
+    "typescript": "3.7.5"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "[[ -n $HUSKY_BYPASS ]] || commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "[[ -n $HUSKY_BYPASS ]] || pretty-quick --staged"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}

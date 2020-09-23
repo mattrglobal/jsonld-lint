@@ -1,0 +1,51 @@
+/*
+ * Copyright 2020 - MATTR Limited
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import { lint, processFile } from "./utilities";
+
+// tslint:disable: no-console no-var-requires
+
+const commander = require("commander");
+const packageJson = require("../package.json");
+
+const program = new commander.Command();
+
+const programBase = program
+  .version(packageJson.version)
+  .description("jsonld-lint");
+
+programBase
+  .command("lint", { isDefault: true })
+  .arguments("[fileOrDirectory]")
+  .action(async (fileOrDirectory: string) => {
+    if (await lint(fileOrDirectory)) {
+      process.exit(1);
+    }
+    process.exit(0);
+  });
+
+programBase
+  .command("process", { isDefault: true })
+  .arguments("[fileOrDirectory]")
+  .action(async (fileOrDirectory: string) => {
+    if (await processFile(fileOrDirectory)) {
+      process.exit(1);
+    }
+    process.exit(0);
+  });
+
+programBase.parse(process.argv);
+
+if (!programBase.args.length) {
+  programBase.help();
+}

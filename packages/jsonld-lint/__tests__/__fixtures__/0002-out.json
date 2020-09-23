@@ -1,0 +1,21 @@
+[
+  {
+    "type": "jsonld-lint-result/term-definition",
+    "name": "@context",
+    "isJsonLdSyntaxToken": true,
+    "documentPosition": {
+      "startPositionOffset": 4,
+      "endPositionOffset": 14
+    }
+  },
+  {
+    "type": "jsonld-lint-result/syntax-error",
+    "rule": "jsonld-lint/unexpected-json-value-type",
+    "message": "Value type for the JSON-LD syntax token \"@context\" of \"boolean\"           is invalid, expected one of: string,array,object",
+    "documentPosition": {
+      "startPositionOffset": 16,
+      "endPositionOffset": 21
+    },
+    "value": "@context"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "lib": ["es6"],
+    "sourceMap": true,
+    "allowJs": false,
+    "moduleResolution": "node",
+    "strict": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "types": ["node", "jest"],
+    "typeRoots": ["../node_modules/@types"],
+    "baseUrl": ".",
+    "resolveJsonModule": true
+  }
+}

@@ -1,0 +1,50 @@
+######################
+# Project Specific
+######################
+lib/
+jest_results/
+node_modules/
+.npmrc
+out/
+.vscode-test/
+
+######################
+# Visual Studio Code
+######################
+.vscode/
+
+######################
+# Windows
+######################
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+######################
+# Mac OSX
+######################
+.DS_Store
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+######################
+# Logs
+######################
+*.log*
+
+######################
+# Others
+######################
+*.*~
+*~
+.merge_file*
+*.swp
+*.swo
+**/bin

@@ -1,0 +1,47 @@
+{
+  "name": "jsonld-lint-vscode",
+  "description": "JSON-LD Linter for vs code",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.46.1"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./out/index.js",
+  "contributes": {
+    "colors": [
+      {
+        "id": "jsonldlint.unDocumentedJsonLdTermBackgroundColor",
+        "description": "Background color style for an un-documented JSON-LD term",
+        "defaults": {
+          "dark": "#e63333e5",
+          "light": "#e63333e5",
+          "highContrast": "#e63333e5"
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.0",
+    "@types/node": "^14.0.27",
+    "@types/vscode": "^1.46.1",
+    "eslint": "^7.6.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.0.1",
+    "typescript": "3.7.5",
+    "vscode-test": "^1.4.0"
+  },
+  "dependencies": {
+    "jsonld-lint": "0.0.1"
+  }
+}

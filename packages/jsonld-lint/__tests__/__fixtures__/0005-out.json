@@ -1,0 +1,30 @@
+[
+  {
+    "type": "jsonld-lint-result/term-definition",
+    "name": "@context",
+    "isJsonLdSyntaxToken": true,
+    "documentPosition": {
+      "startPositionOffset": 4,
+      "endPositionOffset": 14
+    }
+  },
+  {
+    "type": "jsonld-lint-result/term-definition",
+    "name": "@version",
+    "isJsonLdSyntaxToken": true,
+    "documentPosition": {
+      "startPositionOffset": 22,
+      "endPositionOffset": 32
+    }
+  },
+  {
+    "type": "jsonld-lint-result/syntax-error",
+    "rule": "jsonld-lint/unexpected-json-value-type",
+    "message": "Value type for the JSON-LD syntax token \"@version\" of \"boolean\"           is invalid, expected one of: number",
+    "documentPosition": {
+      "startPositionOffset": 34,
+      "endPositionOffset": 39
+    },
+    "value": "@version"
+  }
+]
