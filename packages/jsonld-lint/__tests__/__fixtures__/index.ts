@@ -17,38 +17,64 @@
 export const testCases = [
   {
     inputFileName: "0001-in.json",
-    outputFileName: "0001-out.json"
+    outputFileName: "0001-out.json",
+    description: "detect un-mapped terms"
   },
   {
     inputFileName: "0002-in.json",
-    outputFileName: "0002-out.json"
+    outputFileName: "0002-out.json",
+    description: "detect boolean value type for @context as syntax error"
   },
   {
     inputFileName: "0003-in.json",
-    outputFileName: "0003-out.json"
+    outputFileName: "0003-out.json",
+    description: "detect numeric value type for @context as syntax error"
   },
   {
     inputFileName: "0004-in.json",
-    outputFileName: "0004-out.json"
+    outputFileName: "0004-out.json",
+    description: "detect string value type for @version as syntax error"
   },
   {
     inputFileName: "0005-in.json",
-    outputFileName: "0005-out.json"
+    outputFileName: "0005-out.json",
+    description: "detect boolean value type for @version as syntax error"
   },
   {
     inputFileName: "0006-in.json",
-    outputFileName: "0006-out.json"
+    outputFileName: "0006-out.json",
+    description:
+      "detect un-expected numeric value type for @version as syntax error"
   },
   {
     inputFileName: "0007-in.json",
-    outputFileName: "0007-out.json"
+    outputFileName: "0007-out.json",
+    description:
+      "detect property matching JSON-LD keyword syntax that is not a known keyword"
   },
   {
-    inputFileName: "0008-in.json",
-    outputFileName: "0008-out.json"
+    inputFileName: "0008-in.json", //TODO this test should fail
+    outputFileName: "0008-out.json",
+    description: "TODO"
   },
   {
-    inputFileName: "0009-in.json",
-    outputFileName: "0009-out.json"
+    inputFileName: "0009-in.json", //TODO not sure what this is testing?
+    outputFileName: "0009-out.json",
+    description: "TODO"
+  },
+  {
+    inputFileName: "0010-in.json",
+    outputFileName: "0010-out.json",
+    description: "detect duplicate aliased properties in object as syntax error"
+  },
+  {
+    inputFileName: "0011-in.json",
+    outputFileName: "0011-out.json",
+    description: "detect duplicate properties in object as syntax error"
+  },
+  {
+    inputFileName: "0012-in.json", // TODO fix this
+    outputFileName: "0012-out.json",
+    description: "detect term with value of syntax token other than @type"
   }
 ];

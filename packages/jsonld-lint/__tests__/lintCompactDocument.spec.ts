@@ -19,8 +19,8 @@ import { testCases } from "./__fixtures__";
 const TEST_FIXTURES_DIRECTORY = "__tests__/__fixtures__";
 
 describe("lintCompactDocument", () => {
-  testCases.forEach(({ inputFileName, outputFileName }) => {
-    it(`should successfully process ${inputFileName}`, async () => {
+  testCases.forEach(({ inputFileName, outputFileName, description }) => {
+    it(`should successfully ${description}`, async () => {
       const inputFile = await readFile(TEST_FIXTURES_DIRECTORY, inputFileName);
       const outputFile = await readFile(
         TEST_FIXTURES_DIRECTORY,

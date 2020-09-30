@@ -1,0 +1,31 @@
+[
+  {
+    "documentPosition": {
+      "endPositionOffset": 14,
+      "startPositionOffset": 4
+    },
+    "isJsonLdSyntaxToken": true,
+    "name": "@context",
+    "type": "jsonld-lint-result/term-definition"
+  },
+  {
+    "documentPosition": {
+      "endPositionOffset": 26,
+      "startPositionOffset": 22
+    },
+    "message": "Duplicate aliased property of JSON-LD term of \"id\" encountered",
+    "rule": "jsonld-lint/duplicate-property-in-json-object",
+    "type": "jsonld-lint-result/syntax-error",
+    "value": "id"
+  },
+  {
+    "documentPosition": {
+      "endPositionOffset": 46,
+      "startPositionOffset": 41
+    },
+    "message": "Duplicate aliased property of JSON-LD term of \"@id\" encountered",
+    "rule": "jsonld-lint/duplicate-property-in-json-object",
+    "type": "jsonld-lint-result/syntax-error",
+    "value": "@id"
+  }
+]

@@ -1,0 +1,31 @@
+[
+  {
+    "type": "jsonld-lint-result/term-definition",
+    "name": "@context",
+    "isJsonLdSyntaxToken": true,
+    "documentPosition": {
+      "startPositionOffset": 4,
+      "endPositionOffset": 14
+    }
+  },
+  {
+    "type": "jsonld-lint-result/syntax-error",
+    "rule": "jsonld-lint/duplicate-property-in-json-object",
+    "message": "Duplicate property of \"id\" encountered",
+    "value": "id",
+    "documentPosition": {
+      "startPositionOffset": 22,
+      "endPositionOffset": 26
+    }
+  },
+  {
+    "type": "jsonld-lint-result/syntax-error",
+    "rule": "jsonld-lint/duplicate-property-in-json-object",
+    "message": "Duplicate property of \"id\" encountered",
+    "value": "id",
+    "documentPosition": {
+      "startPositionOffset": 41,
+      "endPositionOffset": 45
+    }
+  }
+]
