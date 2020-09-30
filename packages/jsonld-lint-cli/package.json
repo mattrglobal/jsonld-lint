@@ -1,6 +1,7 @@
 {
   "name": "jsonld-lint-cli",
   "description": "JSON-LD Linter CLI",
+  "license": "Apache-2.0",
   "homepage": "https://github.com/mattrglobal/jsonld-lint",
   "version": "0.0.1",
   "main": "lib/index.js",

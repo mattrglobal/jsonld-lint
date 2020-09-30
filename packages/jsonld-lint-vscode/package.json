@@ -1,6 +1,7 @@
 {
   "name": "jsonld-lint-vscode",
   "description": "JSON-LD Linter for vs code",
+  "license": "Apache-2.0",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.46.1"
