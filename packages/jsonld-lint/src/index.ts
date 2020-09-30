@@ -10,7 +10,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+import {
+  getLanguageService,
+  TextDocument,
+  ASTNode,
+  PropertyASTNode,
+  StringASTNode,
+  ObjectASTNode,
+  ArrayASTNode,
+  JSONDocument
+} from "vscode-json-languageservice";
 import {
   expand,
   getDocumentContext,
@@ -23,16 +32,6 @@ import {
   isValidAsJsonLdKeyword,
   buildContextResolver
 } from "./jsonldDocumentProcessor";
-import {
-  getLanguageService,
-  TextDocument,
-  ASTNode,
-  PropertyASTNode,
-  StringASTNode,
-  ObjectASTNode,
-  ArrayASTNode,
-  JSONDocument
-} from "vscode-json-languageservice";
 import { createJsonLdLintError, documentOffSetToPosition } from "./utilities";
 import {
   ContextResolver,
@@ -44,14 +43,13 @@ import {
   JsonLdDocumentLintRule,
   JsonLdLintOptions,
   JsonLdDocumentProcessingContext,
-  JsonLdDocumentSyntaxErrorRule
+  JsonLdDocumentSyntaxErrorRule,
+  ValueValidator
 } from "./types";
-import { ValueValidator } from "./types/KnownJsonLdTerm";
 
 const service = getLanguageService({});
 
 export * from "./types";
-export { buildContextResolver } from "./jsonldDocumentProcessor";
 
 /**
  * VS Code language identifier for JSON

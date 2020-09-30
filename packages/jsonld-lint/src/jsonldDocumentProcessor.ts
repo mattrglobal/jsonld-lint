@@ -15,12 +15,15 @@ import * as jsonld from "jsonld";
 import * as context from "jsonld/lib/context";
 import JsonLDContextResolver from "jsonld/lib/ContextResolver";
 import LRUCache from "lru-cache";
-import { JsonLdDocumentTermInfo } from "./types/JsonLdDocumentTermInfo";
-import { KnownJsonLdTerm } from "./types";
-import { JsonLdDocumentContext } from "./types/JsonLdDocumentContext";
-import { JsonLdObjectType } from "./types/JsonLdObjectType";
-import { ContextResolver } from "./types/ContextResolver";
-import { ValueValidator } from "./types/KnownJsonLdTerm";
+
+import {
+  JsonLdDocumentTermInfo,
+  KnownJsonLdTerm,
+  JsonLdDocumentContext,
+  JsonLdObjectType,
+  ContextResolver,
+  ValueValidator
+} from "./types";
 
 /**
  * The keyword pattern for JSON-LD terms

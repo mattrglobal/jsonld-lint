@@ -18,6 +18,18 @@ import {
 } from "./JsonLdDocumentSyntaxError";
 import { JsonLdDocumentLintResult } from "./JsonLdDocumentLintResult";
 
+export {
+  JsonLdDocumentSyntaxError,
+  JsonLdDocumentSyntaxErrorRule,
+  JsonLdDocumentTerm,
+  JsonLdDocumentLintResult
+};
+
+export type JsonLdDocumentProcessingResult =
+  | JsonLdDocumentTerm
+  | JsonLdDocumentSyntaxError
+  | JsonLdDocumentLintResult;
+
 export { DocumentPosition } from "./DocumentPosition";
 export {
   JsonLdLintError,
@@ -30,19 +42,9 @@ export { JsonLdDocumentProcessingContext } from "./JsonLdDocumentProcessingConte
 export { JsonLdDocumentTermProcessingResult } from "./JsonLdDocumentTermProcessingResult";
 export { JsonLdDocumentValue } from "./JsonLdDocumentValue";
 export { JsonLdDocumentValueProcessingResult } from "./JsonLdDocumentValueProcessingResult";
-export { KnownJsonLdTerm } from "./KnownJsonLdTerm";
+export { KnownJsonLdTerm, ValueValidator } from "./KnownJsonLdTerm";
 export { JsonLdDocumentProcessingResultType } from "./JsonLdDocumentProcessingResult";
 export { JsonLdObjectType } from "./JsonLdObjectType";
 export { ContextResolver } from "./ContextResolver";
-
-export {
-  JsonLdDocumentSyntaxError,
-  JsonLdDocumentSyntaxErrorRule,
-  JsonLdDocumentTerm,
-  JsonLdDocumentLintResult
-};
-
-export type JsonLdDocumentProcessingResult =
-  | JsonLdDocumentTerm
-  | JsonLdDocumentSyntaxError
-  | JsonLdDocumentLintResult;
+export { JsonLdDocumentTermInfo } from "./JsonLdDocumentTermInfo";
+export { JsonLdDocumentContext } from "./JsonLdDocumentContext";

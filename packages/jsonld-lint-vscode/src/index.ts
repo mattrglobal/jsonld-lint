@@ -15,17 +15,24 @@ import * as vscode from "vscode";
 
 import {
   process,
+  buildContextResolver,
   JsonLdLintErrorType,
   JsonLdDocumentTerm,
   JsonLdDocumentLintResult,
-  JsonLdDocumentSyntaxError
+  JsonLdDocumentSyntaxError,
+  JsonLdDocumentProcessingResultType
 } from "jsonld-lint";
-import { JsonLdDocumentProcessingResultType } from "jsonld-lint/lib/types/JsonLdDocumentProcessingResult";
-import { buildContextResolver } from "jsonld-lint";
 
+/**
+ * When the extension is activated we build a context resolver that
+ * has LRU cache that persists for the lifetime of the extension
+ * which prevents reloading of JSON-LD document contexts
+ */
 const contextResolver = buildContextResolver();
 
-// this method is called when vs code is activated
+/**
+ * Method is called when vs code is activated
+ */
 export function activate(context: vscode.ExtensionContext) {
   console.log("jsonld-lint extension is active");
 
@@ -37,7 +44,6 @@ export function activate(context: vscode.ExtensionContext) {
       color: {
         id: "jsonldlint.unDocumentedJsonLdTermBackgroundColor"
       }
-      // border: '2px solid white',
     }
   );
 
