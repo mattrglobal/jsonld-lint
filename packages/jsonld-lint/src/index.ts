@@ -188,21 +188,6 @@ export const processJsonObject = async (
 ): Promise<JsonLdDocumentProcessingResult[]> => {
   const results: JsonLdDocumentProcessingResult[] = [];
 
-  // if (objectContainsDuplicateProperties(object)) {
-  //   return [
-  //     {
-  //       type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
-  //       rule: JsonLdDocumentSyntaxErrorRule.DuplicateKeysInJsonObject,
-  //       message: `Encountered duplicate keys in the JSON object`,
-  //       documentPosition: documentOffSetToPosition(
-  //         object.offset,
-  //         object.length
-  //       ),
-  //       value: processingContext?.currentTerm?.name
-  //     }
-  //   ];
-  // }
-
   const jsonLdSyntaxTokenProperties = object.properties.filter(
     (_: PropertyASTNode) => isJsonLdKeyword(_.keyNode.value)
   );
@@ -217,7 +202,8 @@ export const processJsonObject = async (
     results.push(
       ...(await processJsonProperty(
         processingContext,
-        jsonLdSyntaxTokenProperties[i]
+        jsonLdSyntaxTokenProperties[i],
+        object
       ))
     );
   }
@@ -262,7 +248,8 @@ export const processJsonObject = async (
     results.push(
       ...(await processJsonProperty(
         currentProcessingContext,
-        nonJsonLdSyntaxTokenProperties[i]
+        nonJsonLdSyntaxTokenProperties[i],
+        object
       ))
     );
   }
@@ -305,14 +292,16 @@ export const detectJsonLdObjectType = (
  */
 export const processJsonProperty = async (
   processingContext: JsonLdDocumentProcessingContext,
-  property: PropertyASTNode
+  property: PropertyASTNode,
+  object: ObjectASTNode
 ): Promise<JsonLdDocumentProcessingResult[]> => {
   const results: JsonLdDocumentProcessingResult[] = [];
 
   results.push(
     ...(await processJsonPropertyKey(
       processingContext,
-      property.keyNode as StringASTNode
+      property.keyNode as StringASTNode,
+      object
     ))
   );
 
@@ -433,6 +422,7 @@ export const processJsonValue = async (
             }
           ];
         }
+
         if (
           termInformation?.valueValidators &&
           termInformation.valueValidators.has(value.type)
@@ -455,6 +445,25 @@ export const processJsonValue = async (
               }
             ];
           }
+        }
+      }
+
+      // TODO should refactor
+      if (value.type === "string") {
+        if (value.value !== "@type" && isJsonLdKeyword(value.value)) {
+          return [
+            {
+              type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
+              rule: JsonLdDocumentSyntaxErrorRule.InvalidSyntaxTokenAsTermValue,
+              message: `Value for the term is the syntax token of "${value.value}" which is \
+                invalid only @type is supported`,
+              value: processingContext.currentTerm.name,
+              documentPosition: documentOffSetToPosition(
+                value.offset,
+                value.length
+              )
+            }
+          ];
         }
       }
 
@@ -489,8 +498,36 @@ export const processJsonArrayValue = async (
  */
 export const processJsonPropertyKey = async (
   processingContext: JsonLdDocumentProcessingContext,
-  key: StringASTNode
+  key: StringASTNode,
+  object: ObjectASTNode
 ): Promise<JsonLdDocumentProcessingResult[]> => {
+  if (isDuplicatePropertyInObject(object, key.value)) {
+    return [
+      {
+        type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
+        rule: JsonLdDocumentSyntaxErrorRule.DuplicatePropertyInJsonObject,
+        message: `Duplicate property of "${key.value}" encountered`,
+        value: key.value,
+        documentPosition: documentOffSetToPosition(key.offset, key.length)
+      }
+    ];
+  }
+
+  if (
+    isJsonLdKeyword(key.value) &&
+    isDuplicateAliasedPropertyInObject(object, key.value)
+  ) {
+    return [
+      {
+        type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
+        rule: JsonLdDocumentSyntaxErrorRule.DuplicateAliasPropertyInJsonObject,
+        message: `Duplicate aliased property of JSON-LD term of "${key.value}" encountered`,
+        value: key.value,
+        documentPosition: documentOffSetToPosition(key.offset, key.length)
+      }
+    ];
+  }
+
   if (isJsonLdKeyword(key.value)) {
     if (
       processingContext.currentJsonLdObjectType &&
@@ -579,41 +616,42 @@ export const processJsonPropertyKey = async (
 };
 
 /**
- * Checks whether an object contains duplicate properties which is
+ * Checks whether the object contains duplicate a duplicate of the supplied property which is
  * illegal in all instances of JSON objects in JSON-LD syntax
  *
- * @param object object to check duplicate properties
+ * @param object object to check from
+ * @param key string key to check if a duplicate exists
  */
-export const objectContainsDuplicateProperties = (
-  object: ObjectASTNode
+export const isDuplicatePropertyInObject = (
+  object: ObjectASTNode,
+  key: string
 ): boolean => {
   return (
     object.properties.filter(
-      (item: PropertyASTNode, index: Number) =>
-        object.properties.findIndex(
-          (_: PropertyASTNode) => _.keyNode.value === item.keyNode.value
-        ) === index
-    ).length > 0
+      (item: PropertyASTNode) => key === item.keyNode.value
+    ).length > 1
   );
 };
 
 /**
  * Checks whether an object contains duplicate alias properties
+ *
  * Example - If an object contains both an `@id` and `id` property
  *
- * @param object object to check duplicate aliased properties
+ * @param object object to check from
+ * @param key string key to check if the duplicate aliased property exists
  */
-export const objectContainsDuplicateAliasedProperties = (
-  object: ObjectASTNode
+export const isDuplicateAliasedPropertyInObject = (
+  object: ObjectASTNode,
+  key: string
 ): boolean => {
-  // TODO
-
+  const keyword = jsonLdKeywords.get(key);
+  if (!keyword) {
+    return true;
+  }
   return (
     object.properties.filter(
-      (item: PropertyASTNode, index: Number) =>
-        object.properties.findIndex(
-          (_: PropertyASTNode) => _.keyNode.value === item.keyNode.value
-        ) === index
+      (item: PropertyASTNode) => keyword.aliasTerm === item.keyNode.value
     ).length > 0
   );
 };

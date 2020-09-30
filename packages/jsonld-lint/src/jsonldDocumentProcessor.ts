@@ -36,6 +36,7 @@ const ABSOLUTE_IRI_REGEX = /^([A-Za-z][A-Za-z0-9+-.]*|_):[^\s]*$/;
 
 /**
  * Checks whether an input string is a valid absolute IRI
+ *
  * @param value String to test the absolute IRI regular expression against
  */
 export const isAbsoluteIri = (value: string) => ABSOLUTE_IRI_REGEX.test(value);
@@ -66,8 +67,6 @@ export const isJsonLdKeywordAndValidInJsonLdObjectType = (
   value: string,
   type: JsonLdObjectType
 ) => jsonLdKeywords.get(value)?.validInJsonLdObjectTypes.includes(type);
-
-// TODO need to adjust the flags for the terms below according to JSON-LD syntax
 
 /**
  *  A list of known JSON-LD keywords and what we know about them from a JSON-LD
