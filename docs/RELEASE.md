@@ -1,6 +1,6 @@
 # Stable Releases
 
-// TODO
+// TODO review
 
 To create a stable release follow the following steps
 
