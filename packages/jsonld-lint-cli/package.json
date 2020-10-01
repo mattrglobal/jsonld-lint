@@ -9,10 +9,10 @@
     "jsonld-lint": "./bin/index.js"
   },
   "directories": {
-    "lib": "lib"
+    "bin": "bin"
   },
   "files": [
-    "lib"
+    "bin"
   ],
   "repository": {
     "type": "git",
