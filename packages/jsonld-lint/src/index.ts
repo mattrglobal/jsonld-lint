@@ -51,6 +51,8 @@ const service = getLanguageService({});
 
 export * from "./types";
 
+export { buildContextResolver };
+
 /**
  * VS Code language identifier for JSON
  */
