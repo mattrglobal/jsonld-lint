@@ -27,7 +27,11 @@ const programBase = program
 programBase
   .command("lint", { isDefault: true })
   .arguments("[fileOrDirectory]")
-  .action(async (fileOrDirectory: string) => {
+  .action(async (fileOrDirectory?: string) => {
+    if (!fileOrDirectory) {
+      programBase.help();
+      process.exit(0);
+    }
     if (await lint(fileOrDirectory)) {
       process.exit(1);
     }
@@ -35,9 +39,13 @@ programBase
   });
 
 programBase
-  .command("process", { isDefault: true })
+  .command("process")
   .arguments("[fileOrDirectory]")
-  .action(async (fileOrDirectory: string) => {
+  .action(async (fileOrDirectory?: string) => {
+    if (!fileOrDirectory) {
+      programBase.help();
+      process.exit(0);
+    }
     if (await processFile(fileOrDirectory)) {
       process.exit(1);
     }

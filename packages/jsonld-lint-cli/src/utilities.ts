@@ -143,8 +143,8 @@ const formatJsonSyntaxError = (
   result: JsonLdDocumentSyntaxError
 ) => {
   console.log(
-    `SYNTAX ERROR: ${filePath}:${result.documentPosition.startPositionOffset}:\
-    ${result.documentPosition.endPositionOffset} - ${result.message}`
+    `SYNTAX ERROR: ${filePath}:${result.documentPosition.startPositionOffset}:${result.documentPosition.endPositionOffset}\
+- ${result.message}`
   );
 };
 
