@@ -15,7 +15,7 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "jest",
+    "test": "lerna run test",
     "build": "lerna run build",
     "format": "prettier --write \"**/*.ts\" \"**/*.md\"  \"!**/lib/**\"",
     "pre-pr": "yarn format && yarn lint:fix && yarn build && yarn test",
