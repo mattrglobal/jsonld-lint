@@ -3,6 +3,9 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "packages": ["packages/*"],
+  "publishConfig": {
+    "access": "restricted"
+  },
   "command": {
     "publish": {
       "allowBranch": ["master"],
