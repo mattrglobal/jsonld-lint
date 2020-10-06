@@ -7,7 +7,7 @@ This package contains the core JSON-LD lint engine written in [typescript](https
 
 ## Syntax Errors
 
-The following defines the enumeration of different syntax errors the `jsonld-lint` processing engine detects
+The following defines the enumeration of different syntax errors the processing engine detects
 
 ### Unexpected JSON Value Type
 
