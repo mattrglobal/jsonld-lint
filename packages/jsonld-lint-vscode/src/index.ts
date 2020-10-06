@@ -24,6 +24,10 @@ import {
 } from "jsonld-lint";
 
 /**
+ * The max time processing a JSON-LD document can take
+ */
+const PROCESSING_TIMEOUT_MS = 500;
+/**
  * When the extension is activated we build a context resolver that
  * has LRU cache that persists for the lifetime of the extension
  * which prevents reloading of JSON-LD document contexts
@@ -42,7 +46,7 @@ export function activate(context: vscode.ExtensionContext) {
   const unmappedPropertyDecorationType = vscode.window.createTextEditorDecorationType(
     {
       color: {
-        id: "jsonldlint.unDocumentedJsonLdTermBackgroundColor"
+        id: "jsonldlint.JsonLdLintResultBackgroundColor"
       }
     }
   );
@@ -98,7 +102,6 @@ export function activate(context: vscode.ExtensionContext) {
         activeEditor.setDecorations(unmappedPropertyDecorationType, []);
         activeEditor.setDecorations(termDecorationType, []);
       }
-      console.log(ex);
       return;
     }
   };
@@ -120,8 +123,11 @@ export function activate(context: vscode.ExtensionContext) {
           propertyEndPos as vscode.Position
         )
       };
-
-      decoration.hoverMessage = `Term ${item.iri}`;
+      if (item.isJsonLdSyntaxToken) {
+        decoration.hoverMessage = `JSON-LD Keyword see ${item.iri}`;
+      } else {
+        decoration.hoverMessage = `JSON-LD Term definition see ${item.iri}`;
+      }
       decorations.push(decoration);
     });
     return decorations;
@@ -156,7 +162,7 @@ export function activate(context: vscode.ExtensionContext) {
       clearTimeout(timeout);
       timeout = undefined;
     }
-    timeout = setTimeout(await updateDecorations, 500);
+    timeout = setTimeout(await updateDecorations, PROCESSING_TIMEOUT_MS);
   };
 
   if (activeEditor) {

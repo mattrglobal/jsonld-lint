@@ -551,6 +551,7 @@ export const processJsonPropertyKey = async (
       {
         type: JsonLdDocumentProcessingResultType.JsonLdTerm,
         name: key.value,
+        iri: jsonLdKeywords.get(key.value)?.iri,
         isJsonLdSyntaxToken: true,
         documentPosition: documentOffSetToPosition(key.offset, key.length)
       }
