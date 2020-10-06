@@ -15,8 +15,8 @@
  * Result from processing a JSON-LD Document
  */
 export enum JsonLdDocumentLintRule {
-  UnrecognizedJsonLdSyntaxToken = "jsonld-lint/unrecognized-jsonld-syntax-token",
-  InvalidUsageOfJsonLdSyntaxToken = "jsonld-lint/invalid-usage-of-jsonld-syntax-token",
+  UnrecognizedJsonLdKeyword = "jsonld-lint/unrecognized-jsonld-keyword",
+  InvalidUsageOfJsonLdKeyword = "jsonld-lint/invalid-usage-of-jsonld-keyword",
   UnmappedTerm = "jsonld-lint/unmapped-term",
   UnexpectedJsonValueType = "jsonld-lint/unexpected-json-value-type",
   UnexpectedJsonValue = "jsonld-lint/unexpected-json-value"

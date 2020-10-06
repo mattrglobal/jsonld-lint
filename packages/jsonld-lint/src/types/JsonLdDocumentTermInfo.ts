@@ -30,5 +30,5 @@ export interface JsonLdDocumentTermInfo {
   /**
    * Indicates whether the term is a JSON-LD type
    */
-  readonly isJsonLdSyntaxToken: boolean;
+  readonly isJsonLdKeyword: boolean;
 }

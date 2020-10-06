@@ -71,8 +71,8 @@ const setDefaultJsonLdLintOptions = (
     lintingRules = [
       JsonLdDocumentLintRule.UnexpectedJsonValue,
       JsonLdDocumentLintRule.UnexpectedJsonValueType,
-      JsonLdDocumentLintRule.InvalidUsageOfJsonLdSyntaxToken,
-      JsonLdDocumentLintRule.UnrecognizedJsonLdSyntaxToken,
+      JsonLdDocumentLintRule.InvalidUsageOfJsonLdKeyword,
+      JsonLdDocumentLintRule.UnrecognizedJsonLdKeyword,
       JsonLdDocumentLintRule.UnmappedTerm
     ];
   }
@@ -188,21 +188,21 @@ export const processJsonObject = async (
 ): Promise<JsonLdDocumentProcessingResult[]> => {
   const results: JsonLdDocumentProcessingResult[] = [];
 
-  const jsonLdSyntaxTokenProperties = object.properties.filter(
+  const jsonLdKeywordProperties = object.properties.filter(
     (_: PropertyASTNode) => isJsonLdKeyword(_.keyNode.value)
   );
-  const nonJsonLdSyntaxTokenProperties = object.properties.filter(
-    (_: PropertyASTNode) => !jsonLdSyntaxTokenProperties.includes(_)
+  const nonJsonLdKeywordProperties = object.properties.filter(
+    (_: PropertyASTNode) => !jsonLdKeywordProperties.includes(_)
   );
 
   const currentJsonLdObjectType = detectJsonLdObjectType(processingContext);
 
   // Process the JSON-LD syntax tokens first
-  for (let i = 0; i < jsonLdSyntaxTokenProperties.length; i++) {
+  for (let i = 0; i < jsonLdKeywordProperties.length; i++) {
     results.push(
       ...(await processJsonProperty(
         processingContext,
-        jsonLdSyntaxTokenProperties[i],
+        jsonLdKeywordProperties[i],
         object
       ))
     );
@@ -244,11 +244,11 @@ export const processJsonObject = async (
   }
 
   // Then process the remaining properties in the object
-  for (let i = 0; i < nonJsonLdSyntaxTokenProperties.length; i++) {
+  for (let i = 0; i < nonJsonLdKeywordProperties.length; i++) {
     results.push(
       ...(await processJsonProperty(
         currentProcessingContext,
-        nonJsonLdSyntaxTokenProperties[i],
+        nonJsonLdKeywordProperties[i],
         object
       ))
     );
@@ -454,7 +454,7 @@ export const processJsonValue = async (
           return [
             {
               type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
-              rule: JsonLdDocumentSyntaxErrorRule.InvalidSyntaxTokenAsTermValue,
+              rule: JsonLdDocumentSyntaxErrorRule.InvalidKeywordAsTermValue,
               message: `Value for the term is the syntax token of "${value.value}" which is \
                 invalid only @type is supported`,
               value: processingContext.currentTerm.name,
@@ -539,7 +539,7 @@ export const processJsonPropertyKey = async (
       return [
         {
           type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
-          rule: JsonLdDocumentSyntaxErrorRule.UnexpectedUseOfSyntaxToken,
+          rule: JsonLdDocumentSyntaxErrorRule.UnexpectedUseOfKeyword,
           message: `Usage of JSON-LD syntax token "${key.value}" in the JSON-LD \
           object type of "${processingContext.currentJsonLdObjectType}" is invalid`,
           value: key.value,
@@ -552,7 +552,7 @@ export const processJsonPropertyKey = async (
         type: JsonLdDocumentProcessingResultType.JsonLdTerm,
         name: key.value,
         iri: jsonLdKeywords.get(key.value)?.iri,
-        isJsonLdSyntaxToken: true,
+        isJsonLdKeyword: true,
         documentPosition: documentOffSetToPosition(key.offset, key.length)
       }
     ];
@@ -562,7 +562,7 @@ export const processJsonPropertyKey = async (
     return [
       {
         type: JsonLdDocumentProcessingResultType.JsonLdLintingResult,
-        rule: JsonLdDocumentLintRule.UnrecognizedJsonLdSyntaxToken,
+        rule: JsonLdDocumentLintRule.UnrecognizedJsonLdKeyword,
         message: `The term "${key.value}" matches the convention of a JSON-LD syntax token but is un-recognized`,
         value: key.value,
         documentPosition: documentOffSetToPosition(key.offset, key.length)
@@ -570,7 +570,7 @@ export const processJsonPropertyKey = async (
       {
         type: JsonLdDocumentProcessingResultType.JsonLdTerm,
         name: key.value,
-        isJsonLdSyntaxToken: false,
+        isJsonLdKeyword: false,
         documentPosition: documentOffSetToPosition(key.offset, key.length)
       }
     ];
@@ -607,7 +607,7 @@ export const processJsonPropertyKey = async (
       {
         type: JsonLdDocumentProcessingResultType.JsonLdTerm,
         name: termInfo.name,
-        isJsonLdSyntaxToken: false,
+        isJsonLdKeyword: false,
         iri: termInfo.iri,
         valueTypeIri: termInfo.valueTypeIri,
         documentPosition: documentOffSetToPosition(key.offset, key.length)

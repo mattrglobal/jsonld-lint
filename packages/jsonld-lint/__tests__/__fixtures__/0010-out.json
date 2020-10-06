@@ -4,7 +4,7 @@
       "endPositionOffset": 14,
       "startPositionOffset": 4
     },
-    "isJsonLdSyntaxToken": true,
+    "isJsonLdKeyword": true,
     "name": "@context",
     "type": "jsonld-lint-result/term-definition"
   },

@@ -91,7 +91,7 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
     "@container",
     {
       name: "@container",
-      iri: "https://www.w3.org/TR/json-ld11/#syntax-tokens-and-keywords",
+      iri: "https://www.w3.org/TR/json-ld11/#keywords-and-keywords",
       expectedJsonValueTypes: ["string", "array"],
       expectedJsonValues: ["@list", "@language", "@set", "@index", "@id"],
       validInJsonLdObjectTypes: [
@@ -232,7 +232,7 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
     "@none",
     {
       name: "@none",
-      iri: "https://www.w3.org/TR/json-ld11/#syntax-tokens-and-keywords",
+      iri: "https://www.w3.org/TR/json-ld11/#keywords-and-keywords",
       expectedJsonValueTypes: ["array", "object", "string"],
       validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
     }
@@ -241,7 +241,7 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
     "@prefix",
     {
       name: "@prefix",
-      iri: "https://www.w3.org/TR/json-ld11/#syntax-tokens-and-keywords",
+      iri: "https://www.w3.org/TR/json-ld11/#keywords-and-keywords",
       expectedJsonValueTypes: ["boolean"],
       validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
     }
@@ -250,7 +250,7 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
     "@propagate",
     {
       name: "@propagate",
-      iri: "https://www.w3.org/TR/json-ld11/#syntax-tokens-and-keywords", // Not compatible with v1.0
+      iri: "https://www.w3.org/TR/json-ld11/#keywords-and-keywords", // Not compatible with v1.0
       expectedJsonValueTypes: ["boolean"],
       validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
     }
@@ -408,9 +408,9 @@ export const getTermInfo = async (
 ): Promise<JsonLdDocumentTermInfo> => {
   let iri;
   let valueTypeIri;
-  let _isJsonLdSyntaxToken = false;
+  let _isJsonLdKeyword = false;
   if (isJsonLdKeyword(term)) {
-    _isJsonLdSyntaxToken = true;
+    _isJsonLdKeyword = true;
     iri = jsonLdKeywords.get(term)?.iri;
   } else if (documentContext?.mappings && documentContext.mappings.has(term)) {
     const mappedTerm = documentContext.mappings.get(term);
@@ -444,7 +444,7 @@ export const getTermInfo = async (
     name: term,
     iri,
     valueTypeIri,
-    isJsonLdSyntaxToken: _isJsonLdSyntaxToken
+    isJsonLdKeyword: _isJsonLdKeyword
   };
 };
 

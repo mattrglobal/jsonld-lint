@@ -23,10 +23,10 @@ import {
 export enum JsonLdDocumentSyntaxErrorRule {
   UnexpectedJsonValueType = "jsonld-lint/unexpected-json-value-type",
   UnexpectedJsonValue = "jsonld-lint/unexpected-json-value",
-  UnexpectedUseOfSyntaxToken = "jsonld-lint/unexpected-use-of-syntax-token",
+  UnexpectedUseOfKeyword = "jsonld-lint/unexpected-use-of-keyword",
   DuplicatePropertyInJsonObject = "jsonld-lint/duplicate-property-in-json-object",
   DuplicateAliasPropertyInJsonObject = "jsonld-lint/duplicate-property-in-json-object",
-  InvalidSyntaxTokenAsTermValue = "jsonld-lint/invalid-syntax-token-as-term-value"
+  InvalidKeywordAsTermValue = "jsonld-lint/invalid-keyword-as-term-value"
 }
 
 export interface JsonLdDocumentSyntaxError

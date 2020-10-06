@@ -123,7 +123,7 @@ export function activate(context: vscode.ExtensionContext) {
           propertyEndPos as vscode.Position
         )
       };
-      if (item.isJsonLdSyntaxToken) {
+      if (item.isJsonLdKeyword) {
         decoration.hoverMessage = `JSON-LD Keyword see ${item.iri}`;
       } else {
         decoration.hoverMessage = `JSON-LD Term definition see ${item.iri}`;

@@ -32,7 +32,7 @@ export interface JsonLdDocumentTerm extends BaseJsonLdDocumentProcessingResult {
   /**
    * Indicates whether the processed term is a JSON-LD syntax token
    */
-  readonly isJsonLdSyntaxToken: boolean;
+  readonly isJsonLdKeyword: boolean;
   /**
    * The fully qualified term IRI
    */

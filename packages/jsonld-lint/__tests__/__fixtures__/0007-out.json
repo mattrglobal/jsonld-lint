@@ -2,7 +2,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "@context",
-    "isJsonLdSyntaxToken": true,
+    "isJsonLdKeyword": true,
     "documentPosition": {
       "startPositionOffset": 4,
       "endPositionOffset": 14
@@ -10,7 +10,7 @@
   },
   {
     "type": "jsonld-lint-result/linting-result",
-    "rule": "jsonld-lint/unrecognized-jsonld-syntax-token",
+    "rule": "jsonld-lint/unrecognized-jsonld-keyword",
     "message": "The term \"@notAValidProperty\" matches the convention of a JSON-LD syntax token but is un-recognized",
     "value": "@notAValidProperty",
     "documentPosition": {
@@ -21,7 +21,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "@notAValidProperty",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "documentPosition": {
       "startPositionOffset": 22,
       "endPositionOffset": 42

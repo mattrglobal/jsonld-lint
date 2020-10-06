@@ -39,7 +39,7 @@ Example - Invalid as the expected values for @version are 1, 1.0 and 1.1
 
 ### Unexpected use of JSON-LD keyword
 
-Rule - `jsonld-lint/unexpected-use-of-syntax-token`
+Rule - `jsonld-lint/unexpected-use-of-keyword`
 
 A result of this type will be returned when a JSON-LD keyword is used in an unexpected way
 

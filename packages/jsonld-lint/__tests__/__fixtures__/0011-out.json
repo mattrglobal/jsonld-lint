@@ -2,7 +2,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "@context",
-    "isJsonLdSyntaxToken": true,
+    "isJsonLdKeyword": true,
     "documentPosition": {
       "startPositionOffset": 4,
       "endPositionOffset": 14

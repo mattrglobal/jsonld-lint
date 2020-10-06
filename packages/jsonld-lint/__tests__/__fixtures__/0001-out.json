@@ -2,7 +2,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "@context",
-    "isJsonLdSyntaxToken": true,
+    "isJsonLdKeyword": true,
     "documentPosition": {
       "startPositionOffset": 4,
       "endPositionOffset": 14
@@ -11,7 +11,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "id",
-    "isJsonLdSyntaxToken": true,
+    "isJsonLdKeyword": true,
     "documentPosition": {
       "startPositionOffset": 109,
       "endPositionOffset": 113
@@ -20,7 +20,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "type",
-    "isJsonLdSyntaxToken": true,
+    "isJsonLdKeyword": true,
     "documentPosition": {
       "startPositionOffset": 171,
       "endPositionOffset": 177
@@ -29,7 +29,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "issuer",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "https://www.w3.org/2018/credentials#issuer",
     "documentPosition": {
       "startPositionOffset": 232,
@@ -39,7 +39,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "identifier",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "http://schema.org/identifier",
     "documentPosition": {
       "startPositionOffset": 277,
@@ -49,7 +49,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "name",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "http://schema.org/name",
     "documentPosition": {
       "startPositionOffset": 305,
@@ -59,7 +59,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "description",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "http://schema.org/description",
     "documentPosition": {
       "startPositionOffset": 342,
@@ -69,7 +69,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "issuanceDate",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "https://www.w3.org/2018/credentials#issuanceDate",
     "valueTypeIri": "http://www.w3.org/2001/XMLSchema#dateTime",
     "documentPosition": {
@@ -80,7 +80,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "expirationDate",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "https://www.w3.org/2018/credentials#expirationDate",
     "valueTypeIri": "http://www.w3.org/2001/XMLSchema#dateTime",
     "documentPosition": {
@@ -101,7 +101,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "credentialSubject",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "https://www.w3.org/2018/credentials#credentialSubject",
     "documentPosition": {
       "startPositionOffset": 535,
@@ -111,7 +111,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "id",
-    "isJsonLdSyntaxToken": true,
+    "isJsonLdKeyword": true,
     "documentPosition": {
       "startPositionOffset": 562,
       "endPositionOffset": 566
@@ -120,7 +120,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "type",
-    "isJsonLdSyntaxToken": true,
+    "isJsonLdKeyword": true,
     "documentPosition": {
       "startPositionOffset": 603,
       "endPositionOffset": 609
@@ -129,7 +129,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "givenName",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "http://schema.org/givenName",
     "documentPosition": {
       "startPositionOffset": 648,
@@ -139,7 +139,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "familyName",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "http://schema.org/familyName",
     "documentPosition": {
       "startPositionOffset": 673,
@@ -149,7 +149,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "gender",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "http://schema.org/gender",
     "documentPosition": {
       "startPositionOffset": 700,
@@ -159,7 +159,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "image",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "http://schema.org/image",
     "documentPosition": {
       "startPositionOffset": 722,
@@ -169,7 +169,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "residentSince",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "https://w3id.org/citizenship#residentSince",
     "valueTypeIri": "http://www.w3.org/2001/XMLSchema#dateTime",
     "documentPosition": {
@@ -180,7 +180,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "lprCategory",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "https://w3id.org/citizenship#lprCategory",
     "documentPosition": {
       "startPositionOffset": 817,
@@ -190,7 +190,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "lprNumber",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "https://w3id.org/citizenship#lprNumber",
     "documentPosition": {
       "startPositionOffset": 843,
@@ -200,7 +200,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "commuterClassification",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "https://w3id.org/citizenship#commuterClassification",
     "documentPosition": {
       "startPositionOffset": 875,
@@ -210,7 +210,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "birthCountry",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "https://w3id.org/citizenship#birthCountry",
     "documentPosition": {
       "startPositionOffset": 911,
@@ -220,7 +220,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "birthDate",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "http://schema.org/birthDate",
     "valueTypeIri": "http://www.w3.org/2001/XMLSchema#dateTime",
     "documentPosition": {
@@ -231,7 +231,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "proof",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "https://w3id.org/security#proof",
     "documentPosition": {
       "startPositionOffset": 975,
@@ -241,7 +241,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "type",
-    "isJsonLdSyntaxToken": true,
+    "isJsonLdKeyword": true,
     "documentPosition": {
       "startPositionOffset": 990,
       "endPositionOffset": 996
@@ -250,7 +250,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "created",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "http://purl.org/dc/terms/created",
     "valueTypeIri": "http://www.w3.org/2001/XMLSchema#dateTime",
     "documentPosition": {
@@ -261,7 +261,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "jws",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "https://w3id.org/security#jws",
     "documentPosition": {
       "startPositionOffset": 1065,
@@ -271,7 +271,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "proofPurpose",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "https://w3id.org/security#proofPurpose",
     "valueTypeIri": "@vocab",
     "documentPosition": {
@@ -282,7 +282,7 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "verificationMethod",
-    "isJsonLdSyntaxToken": false,
+    "isJsonLdKeyword": false,
     "iri": "https://w3id.org/security#verificationMethod",
     "documentPosition": {
       "startPositionOffset": 1159,
