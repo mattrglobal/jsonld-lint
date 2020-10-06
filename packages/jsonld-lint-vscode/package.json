@@ -16,8 +16,8 @@
   "contributes": {
     "colors": [
       {
-        "id": "jsonldlint.unDocumentedJsonLdTermBackgroundColor",
-        "description": "Background color style for an un-documented JSON-LD term",
+        "id": "jsonldlint.JsonLdLintResultBackgroundColor",
+        "description": "Background color style for an issue identified by JSON-LD lint",
         "defaults": {
           "dark": "#e63333e5",
           "light": "#e63333e5",
