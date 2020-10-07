@@ -1,6 +1,6 @@
 ![Mattr logo](./docs/assets/mattr-black.svg)
 
-# JSON-LD Lint
+# JSONLD Lint
 
 ![push-master](https://github.com/mattrglobal/jsonld-lint/workflows/push-master/badge.svg)
 ![push-release](https://github.com/mattrglobal/jsonld-lint/workflows/push-release/badge.svg)

@@ -1,4 +1,9 @@
-# jsonld-lint
+# JSONLD Lint
+
+![npm-version](https://badgen.net/npm/v/jsonld-lint)
+![npm-unstable-version](https://badgen.net/npm/v/jsonld-lint)
+![push-master](https://github.com/mattrglobal/jsonld-lint/workflows/push-master/badge.svg)
+![push-release](https://github.com/mattrglobal/jsonld-lint/workflows/push-release/badge.svg)
 
 This package contains the core JSON-LD lint engine written in [typescript](https://www.typescriptlang.org/) its primary dependencies are
 

@@ -1,4 +1,9 @@
-# jsonld-lint-cli
+# JSONLD Lint CLI
+
+![npm-version](https://badgen.net/npm/v/jsonld-lint-cli)
+![npm-unstable-version](https://badgen.net/npm/v/jsonld-lint-cli)
+![push-master](https://github.com/mattrglobal/jsonld-lint/workflows/push-master/badge.svg)
+![push-release](https://github.com/mattrglobal/jsonld-lint/workflows/push-release/badge.svg)
 
 The jsonld-lint engine bundled as a CLI tool
 
