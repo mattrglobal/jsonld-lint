@@ -1,10 +1,10 @@
 # jsonld-lint-cli
 
-Home to the jsonld-lint engine bundled as a CLI tool
+The jsonld-lint engine bundled as a CLI tool
 
 ## Getting started
 
-With your favorite package manager install the cli tool
+With your favorite package manager install
 
 With [yarn](https://yarnpkg.com/) run
 
@@ -24,7 +24,7 @@ Now lint your document
 jsonld-lint my-jsonld-document.jsonld
 ```
 
-Or a directory
+Or a directory of documents
 
 ```
 jsonld-lint ./my-directory-of-jsonld-documents

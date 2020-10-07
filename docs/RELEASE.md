@@ -27,8 +27,6 @@ An unstable release is triggered on every commit to master, where the `/.github/
 The releases have the following version syntax
 `<current package version + patch version>-unstable.<current git commit reference>`
 
-**Note** Unstable releases include the un-compiled rust required to build the project and hence require rust to install.
-
 **Note** The `/.github/workflows/push-master.yaml` will skip if the commit message includes `[skip ci]`
 
 **Note** To skip the automatic release of a new unstable version append `[skip ci]` to the end of the commit message
