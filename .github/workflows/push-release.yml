@@ -14,18 +14,36 @@ jobs:
       matrix:
         node-version: [12.x]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: yarn install --frozen-lockfile
-      - run: yarn lint
-      - run: yarn build
-      - run: yarn test
-      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc 2> /dev/null
+          # Must checkout using ci user personal access token in GH_TOKEN so that last step can commit to master
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # checkout master explicitly as workflow triggered on a tag which results in checkout of detached HEAD
+          ref: master
+          # 0 indicates all history, needed for correct unstable version generation (commit count since last release)
+          fetch-depth: 0
+
+      - name: Setup nodejs
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install, lint and build
+        run: |
+          yarn install --frozen-lockfile
+          yarn lint
+          yarn build
+
+      - name: Test (unit)
+        run: yarn test
+
+      - name: Publish unstable release
         env:
-          NPM_TOKEN: ${{ secrets.NPMJS_PUBLIC_TOKEN }}
-      - run: git config user.name "Mattr CI"
-      - run: git config user.email "npmjs_ci_mattr_public@mattr.global"
-      - run: npm whoami
-      - run: yarn publish:release
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_PUBLIC_TOKEN }}
+        run: |
+          git config user.name "Mattr CI"
+          git config user.email "npmjs_ci_mattr_public@mattr.global"
+          npm whoami
+          yarn publish:release
