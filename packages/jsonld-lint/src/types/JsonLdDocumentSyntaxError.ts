@@ -21,12 +21,12 @@ import {
  * JSON-LD Document Syntax error type
  */
 export enum JsonLdDocumentSyntaxErrorRule {
-  UnexpectedJsonValueType = "jsonld-lint/unexpected-json-value-type",
-  UnexpectedJsonValue = "jsonld-lint/unexpected-json-value",
-  UnexpectedUseOfKeyword = "jsonld-lint/unexpected-use-of-keyword",
+  UnexpectedJsonLdKeywordValueType = "jsonld-lint/unexpected-json-value-type",
+  UnexpectedJsonLdKeywordValue = "jsonld-lint/unexpected-json-value",
+  UnexpectedUseOfJsonLdKeyword = "jsonld-lint/unexpected-use-of-jsonld-keyword",
   DuplicatePropertyInJsonObject = "jsonld-lint/duplicate-property-in-json-object",
   DuplicateAliasPropertyInJsonObject = "jsonld-lint/duplicate-property-in-json-object",
-  InvalidKeywordAsTermValue = "jsonld-lint/invalid-keyword-as-term-value"
+  InvalidJsonLdKeywordAsTermValue = "jsonld-lint/invalid-jsonld-keyword-as-term-value"
 }
 
 export interface JsonLdDocumentSyntaxError

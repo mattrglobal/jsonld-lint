@@ -39,9 +39,6 @@ export {
 export { JsonLdLintOptions } from "./JsonLdLintOptions";
 export { JsonLdDocumentLintRule } from "./JsonLdDocumentLintRule";
 export { JsonLdDocumentProcessingContext } from "./JsonLdDocumentProcessingContext";
-export { JsonLdDocumentTermProcessingResult } from "./JsonLdDocumentTermProcessingResult";
-export { JsonLdDocumentValue } from "./JsonLdDocumentValue";
-export { JsonLdDocumentValueProcessingResult } from "./JsonLdDocumentValueProcessingResult";
 export { KnownJsonLdTerm, ValueValidator } from "./KnownJsonLdTerm";
 export { JsonLdDocumentProcessingResultType } from "./JsonLdDocumentProcessingResult";
 export { JsonLdObjectType } from "./JsonLdObjectType";

@@ -69,9 +69,6 @@ const setDefaultJsonLdLintOptions = (
   let lintingRules = options?.lintingRules;
   if (!lintingRules) {
     lintingRules = [
-      JsonLdDocumentLintRule.UnexpectedJsonValue,
-      JsonLdDocumentLintRule.UnexpectedJsonValueType,
-      JsonLdDocumentLintRule.InvalidUsageOfJsonLdKeyword,
       JsonLdDocumentLintRule.UnrecognizedJsonLdKeyword,
       JsonLdDocumentLintRule.UnmappedTerm
     ];
@@ -348,7 +345,7 @@ export const processJsonValue = async (
       return [
         {
           type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
-          rule: JsonLdDocumentSyntaxErrorRule.UnexpectedJsonValueType,
+          rule: JsonLdDocumentSyntaxErrorRule.UnexpectedJsonLdKeywordValueType,
           message: `Value type for the JSON-LD syntax token "${processingContext.currentTerm.name}" of "${value.type}" \
           is invalid, expected one of: ${termInformation.expectedJsonValueTypes}`,
           documentPosition: documentOffSetToPosition(
@@ -375,7 +372,7 @@ export const processJsonValue = async (
     return [
       {
         type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
-        rule: JsonLdDocumentSyntaxErrorRule.UnexpectedJsonValueType,
+        rule: JsonLdDocumentSyntaxErrorRule.UnexpectedJsonLdKeywordValueType,
         message: `Value type for the JSON-LD term definition for term "${processingContext.currentTerm.name}" of \
         "${value.type}" is invalid, expected one of: ${validJsonLdTermDefinitionJsonTypes}`,
         documentPosition: documentOffSetToPosition(value.offset, value.length),
@@ -411,7 +408,7 @@ export const processJsonValue = async (
           return [
             {
               type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
-              rule: JsonLdDocumentSyntaxErrorRule.UnexpectedJsonValue,
+              rule: JsonLdDocumentSyntaxErrorRule.UnexpectedJsonLdKeywordValue,
               message: `Value for the JSON-LD syntax token "${processingContext.currentTerm.name}" of \
               "${value.value}" is invalid, expected one of: ${termInformation.expectedJsonValues}`,
               value: processingContext.currentTerm.name,
@@ -434,7 +431,8 @@ export const processJsonValue = async (
             return [
               {
                 type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
-                rule: JsonLdDocumentSyntaxErrorRule.UnexpectedJsonValue,
+                rule:
+                  JsonLdDocumentSyntaxErrorRule.UnexpectedJsonLdKeywordValue,
                 message: `Value for the JSON-LD syntax token "${processingContext.currentTerm.name}" of \
                   "${value.value}" is invalid`,
                 value: processingContext.currentTerm.name,
@@ -454,7 +452,8 @@ export const processJsonValue = async (
           return [
             {
               type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
-              rule: JsonLdDocumentSyntaxErrorRule.InvalidKeywordAsTermValue,
+              rule:
+                JsonLdDocumentSyntaxErrorRule.InvalidJsonLdKeywordAsTermValue,
               message: `Value for the term is the syntax token of "${value.value}" which is \
                 invalid only @type is supported`,
               value: processingContext.currentTerm.name,
@@ -539,7 +538,7 @@ export const processJsonPropertyKey = async (
       return [
         {
           type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
-          rule: JsonLdDocumentSyntaxErrorRule.UnexpectedUseOfKeyword,
+          rule: JsonLdDocumentSyntaxErrorRule.UnexpectedUseOfJsonLdKeyword,
           message: `Usage of JSON-LD syntax token "${key.value}" in the JSON-LD \
           object type of "${processingContext.currentJsonLdObjectType}" is invalid`,
           value: key.value,

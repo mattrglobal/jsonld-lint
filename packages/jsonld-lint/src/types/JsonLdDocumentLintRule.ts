@@ -16,8 +16,5 @@
  */
 export enum JsonLdDocumentLintRule {
   UnrecognizedJsonLdKeyword = "jsonld-lint/unrecognized-jsonld-keyword",
-  InvalidUsageOfJsonLdKeyword = "jsonld-lint/invalid-usage-of-jsonld-keyword",
-  UnmappedTerm = "jsonld-lint/unmapped-term",
-  UnexpectedJsonValueType = "jsonld-lint/unexpected-json-value-type",
-  UnexpectedJsonValue = "jsonld-lint/unexpected-json-value"
+  UnmappedTerm = "jsonld-lint/unmapped-term"
 }
