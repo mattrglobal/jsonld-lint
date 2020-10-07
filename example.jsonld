@@ -1,0 +1,7 @@
+{
+  "@context": {
+    "definedTerm": "https://example.com/definedTerm"
+  },
+  "definedTerm": "good",
+  "undefinedTerm": "bad"
+}

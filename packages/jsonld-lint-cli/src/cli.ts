@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-import { lint, processFile } from "./utilities";
+import { lint, processFile, isDirectory } from "./utilities";
 
 // tslint:disable: no-console no-var-requires
 
@@ -40,13 +40,17 @@ programBase
 
 programBase
   .command("process")
-  .arguments("[fileOrDirectory]")
-  .action(async (fileOrDirectory?: string) => {
-    if (!fileOrDirectory) {
+  .arguments("[file]")
+  .action(async (file?: string) => {
+    if (!file) {
       programBase.help();
       process.exit(0);
     }
-    if (await processFile(fileOrDirectory)) {
+    if (isDirectory(file)) {
+      console.log("Supplied parameter is a directory not a file");
+      process.exit(0);
+    }
+    if (await processFile(file)) {
       process.exit(1);
     }
     process.exit(0);
