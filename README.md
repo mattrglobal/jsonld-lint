@@ -2,6 +2,9 @@
 
 # JSON-LD Lint
 
+![push-master](https://github.com/mattrglobal/jsonld-lint/workflows/push-master/badge.svg)
+![push-release](https://github.com/mattrglobal/jsonld-lint/workflows/push-release/badge.svg)
+
 This repository is home to a set of packages designed to [lint](<"https://en.wikipedia.org/wiki/Lint_(software)">) [JSON-LD](https://www.w3.org/TR/json-ld11/) documents.
 
 These include
