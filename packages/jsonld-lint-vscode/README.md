@@ -1,3 +1,5 @@
+![Mattr logo](../../docs/assets/mattr-black.svg)
+
 # JSONLD Lint VSCode Extension
 
 ![npm-version](https://badgen.net/npm/v/jsonld-lint-vscode)

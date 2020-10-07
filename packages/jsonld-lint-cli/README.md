@@ -1,3 +1,5 @@
+![Mattr logo](../../docs/assets/mattr-black.svg)
+
 # JSONLD Lint CLI
 
 ![npm-version](https://badgen.net/npm/v/jsonld-lint-cli)
