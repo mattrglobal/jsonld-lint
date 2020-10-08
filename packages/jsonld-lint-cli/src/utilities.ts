@@ -153,19 +153,14 @@ const formatLintResult = (
   filePath: string,
   result: JsonLdDocumentLintResult
 ) => {
-  console.log(
-    `ERROR: ${filePath}:${result.documentPosition.startPositionOffset}:${result.documentPosition.endPositionOffset} - ${result.message}`
-  );
+  console.log(`ERROR: ${filePath} - ${result.message}`);
 };
 
 const formatJsonSyntaxError = (
   filePath: string,
   result: JsonLdDocumentSyntaxError
 ) => {
-  console.log(
-    `SYNTAX ERROR: ${filePath}:${result.documentPosition.startPositionOffset}:${result.documentPosition.endPositionOffset}\
-- ${result.message}`
-  );
+  console.log(`SYNTAX ERROR: ${filePath} - ${result.message}`);
 };
 
 const fileSearch = async (
