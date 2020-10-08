@@ -8,3 +8,5 @@
 _Coming soon_
 
 The jsonld-lint engine bundled as a [vscode](https://code.visualstudio.com/) extension.
+
+<p align="center"><img src="./assets/vscode.gif?raw=true"/></p>
