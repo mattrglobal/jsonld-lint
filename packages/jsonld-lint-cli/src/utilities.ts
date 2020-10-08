@@ -58,7 +58,7 @@ export const lint = async (
     if (!exists(fileOrDirectoryPath)) {
       throw new Error("File or directory does not exist");
     }
-    if (fileExtensionFilter.charAt(0) != ".") {
+    if (fileExtensionFilter.charAt(0) !== ".") {
       throw new Error("File extension must begin with `.`");
     }
     if (isDirectory(fileOrDirectoryPath)) {
@@ -84,7 +84,7 @@ export const lint = async (
 export const lintDirectory = async (
   directory: string,
   filter: string,
-  recursive?: boolean
+  recursive: boolean
 ): Promise<boolean> => {
   const directoryPath = path.join(process.env.PWD as string, directory);
   console.log(
@@ -166,7 +166,7 @@ const formatJsonSyntaxError = (
 const fileSearch = async (
   startPath: string,
   filter: string,
-  recursive: boolean = false,
+  recursive: boolean,
   matchedFiles: string[] = []
 ): Promise<string[]> => {
   let files = await promises.readdir(startPath);
