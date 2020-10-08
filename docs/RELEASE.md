@@ -1,24 +1,29 @@
 # Stable Releases
 
-// TODO review
+## Get latest from remote
 
-To create a stable release follow the following steps
+```
+1. git checkout master
+2. git fetch --all
 
-1. Checkout the head of master `git checkout master && git pull`
-2. Create a new release branch from master e.g `release`
-3. Ensure the package is clean from previous branches/builds `yarn clean`
-4. Install the dependencies `yarn install --frozen-lockfile`
-5. Build the package `yarn build`
-6. Test the package `yarn test`
-7. Run `yarn version:release`, note by default this will do a minor package release as we are pre the `1.0.0` release
-8. Observe the correctly incremented change to the `package.json` and the new entry in `CHANGELOG.md` along with the
-   newly created commit
-9. Push the release branch including the newly created tags `git push origin release --tags`
-10. Open a pull request for the release, once approvals have been sought, merge the pull request using squash,
-    preserving the commit message as `chore(release): publish [skip ci]`
-11. Observe the triggering of the `/.github/workflows/push-release.yaml`
+**CAUTION WITH git reset --hard MAKE SURE ALL LOCAL CHANGES ARE STASHED OR COMMITTED**
 
-The resulting release will publish the new package to NPM and the resulting binaries to github packages.
+3. git reset --hard origin/master
+```
+
+## Delete existing release tag from local and remote
+
+```bash
+4. git tag --delete release
+5. git push --delete origin refs/tags/release
+```
+
+## Tag HEAD of master and push to remote
+
+```bash
+6. git tag release
+7. git push origin refs/tags/release
+```
 
 # Unstable Releases
 
