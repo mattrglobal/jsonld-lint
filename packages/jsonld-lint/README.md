@@ -1,6 +1,6 @@
 ![Mattr logo](../../docs/assets/mattr-black.svg)
 
-# JSONLD Lint
+# JSON-LD Lint
 
 ![npm-version](https://badgen.net/npm/v/jsonld-lint)
 ![npm-unstable-version](https://badgen.net/npm/v/jsonld-lint)

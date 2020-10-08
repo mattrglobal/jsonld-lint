@@ -1,6 +1,6 @@
 ![Mattr logo](./docs/assets/mattr-black.svg)
 
-# JSONLD Lint
+# JSON-LD Lint
 
 ![push-master](https://github.com/mattrglobal/jsonld-lint/workflows/push-master/badge.svg)
 ![push-release](https://github.com/mattrglobal/jsonld-lint/workflows/push-release/badge.svg)
@@ -9,9 +9,21 @@ This repository is home to a set of packages designed to [lint](<"https://en.wik
 
 These include
 
-- [JSON-LD lint cli](./packages/jsonld-lint-cli/README.md) - A CLI tool for linting/processing JSON-LD documents, like [eslint](https://github.com/eslint/eslint) but for [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON-LD lint vs-code extension](./packages/jsonld-lint-vscode/README.md) - An extension that brings the JSON-LD lint smarts to the popular IDE [VS-Code](https://code.visualstudio.com/)
-- [JSON-LD lint core](./packages/jsonld-lint/README.md) - The core linting and processing engine for JSON-LD documents
+### [JSON-LD lint core](./packages/jsonld-lint/README.md)
+
+The core linting and processing engine for JSON-LD documents
+
+### [JSON-LD Lint cli](./packages/jsonld-lint-cli/README.md)
+
+A CLI tool for linting/processing JSON-LD documents, like [eslint](https://github.com/eslint/eslint) but for [JSON-LD](https://www.w3.org/TR/json-ld11/)
+
+<p align="center"><img src="./packages/jsonld-lint-cli/assets/cli.gif?raw=true"/></p>
+
+### [JSON-LD Lint VS-Code extension](./packages/jsonld-lint-vscode/README.md)
+
+_Coming soon_
+
+An extension that brings the JSON-LD lint smarts to the popular IDE [VS-Code](https://code.visualstudio.com/)
 
 ## Built with
 
