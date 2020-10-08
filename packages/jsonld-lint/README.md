@@ -146,3 +146,18 @@ un-mapped term.
   "undefinedTerm": "bad"
 }
 ```
+
+### Empty JSON Property Key
+
+Rule - `jsonld-lint/empty-json-property-key`
+
+A result of this type will be returned when a JSON property key is encountered which is an empty string
+
+Example - The JSON object contains an empty string as the key for one of the JSON properties
+
+```json
+{
+  "@context": {},
+  "": false
+}
+```

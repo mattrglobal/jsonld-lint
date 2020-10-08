@@ -1,5 +1,4 @@
 {
   "@context": {},
-  "id": "some-id",
-  "@id": "some-duplicate-id"
+  "": false
 }

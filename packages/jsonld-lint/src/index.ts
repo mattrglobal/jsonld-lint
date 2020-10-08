@@ -500,6 +500,16 @@ export const processJsonPropertyKey = async (
   key: StringASTNode,
   object: ObjectASTNode
 ): Promise<JsonLdDocumentProcessingResult[]> => {
+  if (key.value === "") {
+    return [
+      {
+        type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
+        rule: JsonLdDocumentSyntaxErrorRule.EmptyJsonPropertyKey,
+        message: `Empty JSON property encountered`,
+        documentPosition: documentOffSetToPosition(key.offset, key.length)
+      }
+    ];
+  }
   if (isDuplicatePropertyInObject(object, key.value)) {
     return [
       {

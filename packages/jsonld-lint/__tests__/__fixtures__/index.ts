@@ -53,28 +53,23 @@ export const testCases = [
       "detect property matching JSON-LD keyword syntax that is not a known keyword"
   },
   {
-    inputFileName: "0008-in.json", //TODO this test should fail
+    inputFileName: "0008-in.json",
     outputFileName: "0008-out.json",
-    description: "TODO"
+    description: "detect duplicate aliased properties in object as syntax error"
   },
   {
-    inputFileName: "0009-in.json", //TODO not sure what this is testing?
+    inputFileName: "0009-in.json",
     outputFileName: "0009-out.json",
-    description: "TODO"
+    description: "detect duplicate properties in object as syntax error"
   },
   {
     inputFileName: "0010-in.json",
     outputFileName: "0010-out.json",
-    description: "detect duplicate aliased properties in object as syntax error"
+    description: "detect term thats an empty string"
   },
   {
     inputFileName: "0011-in.json",
     outputFileName: "0011-out.json",
-    description: "detect duplicate properties in object as syntax error"
-  },
-  {
-    inputFileName: "0012-in.json", // TODO fix this
-    outputFileName: "0012-out.json",
     description: "detect term with value of syntax token other than @type"
   }
 ];

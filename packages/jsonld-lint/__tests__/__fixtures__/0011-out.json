@@ -2,30 +2,11 @@
   {
     "type": "jsonld-lint-result/term-definition",
     "name": "@context",
+    "iri": "https://www.w3.org/TR/json-ld11/#the-context",
     "isJsonLdKeyword": true,
     "documentPosition": {
       "startPositionOffset": 4,
       "endPositionOffset": 14
-    }
-  },
-  {
-    "type": "jsonld-lint-result/syntax-error",
-    "rule": "jsonld-lint/duplicate-property-in-json-object",
-    "message": "Duplicate property of \"id\" encountered",
-    "value": "id",
-    "documentPosition": {
-      "startPositionOffset": 22,
-      "endPositionOffset": 26
-    }
-  },
-  {
-    "type": "jsonld-lint-result/syntax-error",
-    "rule": "jsonld-lint/duplicate-property-in-json-object",
-    "message": "Duplicate property of \"id\" encountered",
-    "value": "id",
-    "documentPosition": {
-      "startPositionOffset": 41,
-      "endPositionOffset": 45
     }
   }
 ]

@@ -1,4 +1,5 @@
 {
   "@context": {},
-  "@protected": true
+  "id": "some-id",
+  "id": "some-duplicate-id"
 }

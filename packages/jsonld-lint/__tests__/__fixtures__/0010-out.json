@@ -1,31 +1,21 @@
 [
   {
-    "documentPosition": {
-      "endPositionOffset": 14,
-      "startPositionOffset": 4
-    },
-    "isJsonLdKeyword": true,
+    "type": "jsonld-lint-result/term-definition",
     "name": "@context",
-    "type": "jsonld-lint-result/term-definition"
+    "iri": "https://www.w3.org/TR/json-ld11/#the-context",
+    "isJsonLdKeyword": true,
+    "documentPosition": {
+      "startPositionOffset": 4,
+      "endPositionOffset": 14
+    }
   },
   {
-    "documentPosition": {
-      "endPositionOffset": 26,
-      "startPositionOffset": 22
-    },
-    "message": "Duplicate aliased property of JSON-LD term of \"id\" encountered",
-    "rule": "jsonld-lint/duplicate-property-in-json-object",
     "type": "jsonld-lint-result/syntax-error",
-    "value": "id"
-  },
-  {
+    "rule": "jsonld-lint/empty-json-property-key",
+    "message": "Empty JSON property encountered",
     "documentPosition": {
-      "endPositionOffset": 46,
-      "startPositionOffset": 41
-    },
-    "message": "Duplicate aliased property of JSON-LD term of \"@id\" encountered",
-    "rule": "jsonld-lint/duplicate-property-in-json-object",
-    "type": "jsonld-lint-result/syntax-error",
-    "value": "@id"
+      "startPositionOffset": 22,
+      "endPositionOffset": 24
+    }
   }
 ]

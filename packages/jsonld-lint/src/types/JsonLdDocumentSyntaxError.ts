@@ -26,7 +26,8 @@ export enum JsonLdDocumentSyntaxErrorRule {
   UnexpectedUseOfJsonLdKeyword = "jsonld-lint/unexpected-use-of-jsonld-keyword",
   DuplicatePropertyInJsonObject = "jsonld-lint/duplicate-property-in-json-object",
   DuplicateAliasPropertyInJsonObject = "jsonld-lint/duplicate-property-in-json-object",
-  InvalidJsonLdKeywordAsTermValue = "jsonld-lint/invalid-jsonld-keyword-as-term-value"
+  InvalidJsonLdKeywordAsTermValue = "jsonld-lint/invalid-jsonld-keyword-as-term-value",
+  EmptyJsonPropertyKey = "jsonld-lint/empty-json-property-key"
 }
 
 export interface JsonLdDocumentSyntaxError
