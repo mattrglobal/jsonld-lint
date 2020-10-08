@@ -9,6 +9,8 @@
 
 The jsonld-lint engine bundled as a CLI tool
 
+[![asciicast](https://asciinema.org/a/p7Mxf0yy9WZ5Ka7FPRLsZHbSY.svg)](https://asciinema.org/a/p7Mxf0yy9WZ5Ka7FPRLsZHbSY)
+
 ## Getting started
 
 With your favorite package manager install
