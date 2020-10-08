@@ -42,6 +42,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPMJS_PUBLIC_TOKEN }}
         run: |
           git config user.name "Mattr CI"
-          git config user.email "npmjs_ci_mattr_public@mattr.global"
+          git config user.email "ci@mattr.global"
           npm whoami
           yarn publish:release
