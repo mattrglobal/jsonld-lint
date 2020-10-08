@@ -2,13 +2,12 @@ name: push-release
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - "release"
 
 jobs:
   build_test_publish:
     name: Build, test, and publish unstable release
-    if: "contains(github.event.head_commit.message, 'chore(release): publish')"
     runs-on: ubuntu-latest
     strategy:
       matrix:
