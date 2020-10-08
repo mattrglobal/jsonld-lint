@@ -17,8 +17,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          # Must checkout using ci user personal access token in GH_TOKEN so that last step can commit to master
-          token: ${{ secrets.GITHUB_TOKEN }}
           # checkout master explicitly as workflow triggered on a tag which results in checkout of detached HEAD
           ref: master
           # 0 indicates all history, needed for correct unstable version generation (commit count since last release)
