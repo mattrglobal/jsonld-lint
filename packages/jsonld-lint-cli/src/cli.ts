@@ -27,12 +27,18 @@ const programBase = program
 programBase
   .command("lint", { isDefault: true })
   .arguments("[fileOrDirectory]")
-  .action(async (fileOrDirectory?: string) => {
-    if (!fileOrDirectory) {
+  .option("-r, --recursive", "recursive file search", false)
+  .option(
+    "-f, --fileExtensionFilter <extension>",
+    "file extension filter",
+    ".jsonld"
+  )
+  .action(async (_: any, cmd?: any) => {
+    if (!cmd?.args[0]) {
       programBase.help();
       process.exit(0);
     }
-    if (await lint(fileOrDirectory)) {
+    if (await lint(cmd?.args[0], cmd.recursive, cmd.fileExtensionFilter)) {
       process.exit(1);
     }
     process.exit(0);

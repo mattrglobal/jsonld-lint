@@ -48,31 +48,51 @@ export const processJsonLd = async (file: string): Promise<boolean> => {
   }
 };
 
-export const lint = async (fileOrDirectoryPath: string): Promise<boolean> => {
+export const lint = async (
+  fileOrDirectoryPath: string,
+  recursiveFileSearch: boolean,
+  fileExtensionFilter: string
+): Promise<boolean> => {
   try {
     console.log("JSON-LD Linter");
     if (!exists(fileOrDirectoryPath)) {
       throw new Error("File or directory does not exist");
     }
-
+    if (fileExtensionFilter.charAt(0) != ".") {
+      throw new Error("File extension must begin with `.`");
+    }
     if (isDirectory(fileOrDirectoryPath)) {
-      return await lintDirectory(fileOrDirectoryPath, ".jsonld");
+      return await lintDirectory(
+        fileOrDirectoryPath,
+        fileExtensionFilter,
+        recursiveFileSearch
+      );
     } else {
+      if (recursiveFileSearch) {
+        console.log(
+          "WARN: ignoring recursive option, not valid when linting file"
+        );
+      }
       return await lintFile(fileOrDirectoryPath);
     }
   } catch (ex) {
-    console.error("ERROR:", JSON.stringify(ex, null, 2), ex);
+    console.error("ERROR:", ex.message);
     process.exit(1);
   }
 };
 
 export const lintDirectory = async (
   directory: string,
-  filter: string
+  filter: string,
+  recursive?: boolean
 ): Promise<boolean> => {
   const directoryPath = path.join(process.env.PWD as string, directory);
-  console.log(`Linting directory: ${directoryPath} with filter ".jsonld"`);
-  const matchedFiles = await recursiveFileSearch(directory, filter);
+  console.log(
+    `Linting directory: ${directoryPath} with file filter ${filter} ${
+      recursive ? `recursively` : ``
+    }`
+  );
+  const matchedFiles = await fileSearch(directory, filter, recursive);
   if (matchedFiles.length === 0) {
     console.log(`No files found for linting`);
     return true;
@@ -148,17 +168,23 @@ const formatJsonSyntaxError = (
   );
 };
 
-const recursiveFileSearch = async (
+const fileSearch = async (
   startPath: string,
   filter: string,
+  recursive: boolean = false,
   matchedFiles: string[] = []
 ): Promise<string[]> => {
   let files = await promises.readdir(startPath);
   for (let i = 0; i < files.length; i++) {
     let filename = path.join(startPath, files[i]);
     let stat = await promises.lstat(filename);
-    if (stat.isDirectory()) {
-      const results = await recursiveFileSearch(filename, filter, matchedFiles);
+    if (stat.isDirectory() && recursive) {
+      const results = await fileSearch(
+        filename,
+        filter,
+        recursive,
+        matchedFiles
+      );
       results.forEach(item => {
         if (!matchedFiles.includes(item)) {
           matchedFiles.push(item);
