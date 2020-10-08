@@ -9,7 +9,7 @@
 
 The jsonld-lint engine bundled as a CLI tool
 
-[![asciicast](https://asciinema.org/a/p7Mxf0yy9WZ5Ka7FPRLsZHbSY.svg)](https://asciinema.org/a/p7Mxf0yy9WZ5Ka7FPRLsZHbSY)
+<p align="center"><img src="./assets/cli.gif?raw=true"/></p>
 
 ## Getting started
 
