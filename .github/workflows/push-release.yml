@@ -38,7 +38,7 @@ jobs:
       - name: Test (unit)
         run: yarn test
 
-      - name: Publish unstable release
+      - name: Publish stable release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPMJS_PUBLIC_TOKEN }}
         run: |

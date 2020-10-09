@@ -22,7 +22,7 @@
     "lint": "prettier --check \"**/*.ts\" \"**/*.md\" \"!**/lib/**\" && tslint --project ./tsconfig.json",
     "lint:fix": "prettier --check \"**/*.ts\" \"**/*.md\" \"!**/lib/**\" && tslint --project ./tsconfig.json --fix",
     "publish:unstable": "lerna publish --canary --dist-tag=unstable --preid=unstable --yes --exact",
-    "publish:release": "lerna publish from-git",
+    "publish:release": "lerna publish from-git --yes",
     "version:release": "lerna version minor --yes --exact --no-push"
   },
   "devDependencies": {
