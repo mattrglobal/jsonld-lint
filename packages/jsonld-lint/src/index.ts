@@ -270,7 +270,7 @@ export const detectJsonLdObjectType = (
       return JsonLdObjectType.LocalContextDefinition;
     }
     if (processingContext.currentTerm.name === "@graph") {
-      return JsonLdObjectType.Graph;
+      return JsonLdObjectType.GraphObject;
     }
     if (
       processingContext.currentJsonLdObjectType ===
@@ -346,8 +346,16 @@ export const processJsonValue = async (
         {
           type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
           rule: JsonLdDocumentSyntaxErrorRule.UnexpectedJsonLdKeywordValueType,
-          message: `Value type for the JSON-LD syntax token "${processingContext.currentTerm.name}" of "${value.type}" \
-          is invalid, expected one of: ${termInformation.expectedJsonValueTypes}`,
+          message: `Value type for the JSON-LD keyword "${
+            processingContext.currentTerm.name
+          }" of "${value.type}" \
+is invalid, ${
+            termInformation.expectedJsonValueTypes.length > 1
+              ? "expected one of type: " +
+                termInformation.expectedJsonValueTypes
+              : "expected \
+type: " + termInformation.expectedJsonValueTypes
+          }`,
           documentPosition: documentOffSetToPosition(
             value.offset,
             value.length
@@ -374,7 +382,7 @@ export const processJsonValue = async (
         type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
         rule: JsonLdDocumentSyntaxErrorRule.UnexpectedJsonLdKeywordValueType,
         message: `Value type for the JSON-LD term definition for term "${processingContext.currentTerm.name}" of \
-        "${value.type}" is invalid, expected one of: ${validJsonLdTermDefinitionJsonTypes}`,
+"${value.type}" is invalid, expected one of: ${validJsonLdTermDefinitionJsonTypes}`,
         documentPosition: documentOffSetToPosition(value.offset, value.length),
         value: processingContext.currentTerm.name
       }
@@ -409,8 +417,8 @@ export const processJsonValue = async (
             {
               type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
               rule: JsonLdDocumentSyntaxErrorRule.UnexpectedJsonLdKeywordValue,
-              message: `Value for the JSON-LD syntax token "${processingContext.currentTerm.name}" of \
-              "${value.value}" is invalid, expected one of: ${termInformation.expectedJsonValues}`,
+              message: `Value for the JSON-LD keyword "${processingContext.currentTerm.name}" of \
+"${value.value}" is invalid, expected one of: ${termInformation.expectedJsonValues}`,
               value: processingContext.currentTerm.name,
               documentPosition: documentOffSetToPosition(
                 value.offset,
@@ -626,7 +634,7 @@ export const processJsonPropertyKey = async (
 };
 
 /**
- * Checks whether the object contains duplicate a duplicate of the supplied property which is
+ * Checks whether the object contains a duplicate of the supplied property which is
  * illegal in all instances of JSON objects in JSON-LD syntax
  *
  * @param object object to check from

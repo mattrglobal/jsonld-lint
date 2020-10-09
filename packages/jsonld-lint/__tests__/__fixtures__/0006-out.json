@@ -20,7 +20,7 @@
   {
     "type": "jsonld-lint-result/syntax-error",
     "rule": "jsonld-lint/unexpected-json-value",
-    "message": "Value for the JSON-LD syntax token \"@version\" of               \"100\" is invalid, expected one of: 1,1,1.1",
+    "message": "Value for the JSON-LD keyword \"@version\" of \"100\" is invalid, expected one of: 1,1,1.1",
     "value": "@version",
     "documentPosition": {
       "startPositionOffset": 34,

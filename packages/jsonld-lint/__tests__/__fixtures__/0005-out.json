@@ -20,7 +20,7 @@
   {
     "type": "jsonld-lint-result/syntax-error",
     "rule": "jsonld-lint/unexpected-json-value-type",
-    "message": "Value type for the JSON-LD syntax token \"@version\" of \"boolean\"           is invalid, expected one of: number",
+    "message": "Value type for the JSON-LD keyword \"@version\" of \"boolean\" is invalid, expected type: number",
     "documentPosition": {
       "startPositionOffset": 34,
       "endPositionOffset": 39

@@ -11,7 +11,7 @@
   {
     "type": "jsonld-lint-result/syntax-error",
     "rule": "jsonld-lint/unexpected-json-value-type",
-    "message": "Value type for the JSON-LD syntax token \"@context\" of \"boolean\"           is invalid, expected one of: string,array,object",
+    "message": "Value type for the JSON-LD keyword \"@context\" of \"boolean\" is invalid, expected one of type: string,array,object",
     "documentPosition": {
       "startPositionOffset": 16,
       "endPositionOffset": 21
