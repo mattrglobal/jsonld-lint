@@ -23,7 +23,7 @@ An extension that brings the JSON-LD lint smarts to the popular IDE [VS-Code](ht
 
 <p align="center"><img src="./packages/jsonld-lint-vscode/assets/vscode.gif?raw=true"/></p>
 
-### [JSON-LD lint core](./packages/jsonld-lint/README.md)
+### [JSON-LD Lint Core](./packages/jsonld-lint/README.md)
 
 The core linting and processing engine for JSON-LD documents
 
