@@ -3,7 +3,7 @@
 To create a stable release follow the following steps
 
 1. Checkout the head of master `git checkout master && git pull`
-2. Create a new release branch from master e.g `release`
+2. Create a new release branch from master called `release`
 3. Install the dependencies `yarn install --frozen-lockfile`
 4. Build the package `yarn build`
 5. Test the package `yarn test`
