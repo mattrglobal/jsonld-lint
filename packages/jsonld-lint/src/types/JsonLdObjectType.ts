@@ -24,6 +24,24 @@ export enum JsonLdObjectType {
    */
   NodeObject = "NodeObject",
   /**
+   * Frame Object
+   *
+   * @see https://www.w3.org/TR/json-ld11/#json-ld-grammar
+   */
+  FrameObject = "FrameObject",
+  /**
+   * Graph Object
+   *
+   * @see https://www.w3.org/TR/json-ld11/#json-ld-grammar
+   */
+  GraphObject = "GraphObject",
+  /**
+   * Graph Object
+   *
+   * @see https://www.w3.org/TR/json-ld11/#json-ld-grammar
+   */
+  ValueObject = "ValueObject",
+  /**
    * Local Context
    *
    * @see https://www.w3.org/TR/json-ld11/#context-definitions
@@ -34,17 +52,5 @@ export enum JsonLdObjectType {
    *
    * @see https://www.w3.org/TR/json-ld11/#expanded-term-definition
    */
-  ExpandedTermDefinition = "ExpandedTermDefinition",
-  /**
-   * Graph
-   *
-   * @see https://www.w3.org/TR/json-ld11/#graph-objects
-   */
-  Graph = "Graph",
-  /**
-   * Value
-   *
-   * @see https://www.w3.org/TR/json-ld11/#value-objects
-   */
-  Value = "Value"
+  ExpandedTermDefinition = "ExpandedTermDefinition"
 }

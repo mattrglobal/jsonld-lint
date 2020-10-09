@@ -92,7 +92,7 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
     {
       name: "@container",
       iri: "https://www.w3.org/TR/json-ld11/#keywords-and-keywords",
-      expectedJsonValueTypes: ["string", "array"],
+      expectedJsonValueTypes: ["string"],
       expectedJsonValues: ["@list", "@language", "@set", "@index", "@id"],
       validInJsonLdObjectTypes: [
         JsonLdObjectType.ExpandedTermDefinition,
@@ -130,7 +130,7 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
     {
       name: "@graph",
       iri: "https://www.w3.org/TR/json-ld11/#named-graphs",
-      expectedJsonValueTypes: ["string", "array", "object"],
+      expectedJsonValueTypes: ["array", "object"],
       validInJsonLdObjectTypes: [
         JsonLdObjectType.NodeObject,
         JsonLdObjectType.LocalContextDefinition
@@ -250,7 +250,7 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
     "@propagate",
     {
       name: "@propagate",
-      iri: "https://www.w3.org/TR/json-ld11/#keywords-and-keywords", // Not compatible with v1.0
+      iri: "https://www.w3.org/TR/json-ld11/#keywords-and-keywords",
       expectedJsonValueTypes: ["boolean"],
       validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
     }
@@ -372,7 +372,7 @@ export const getDocumentContext = async (
   contextResolver: ContextResolver
 ): Promise<JsonLdDocumentContext> => {
   if (!document["@context"]) {
-    throw Error("TODO");
+    throw Error("Failed to find document context");
   }
 
   const initialContext = await jsonld.processContext(
