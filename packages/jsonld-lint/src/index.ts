@@ -442,7 +442,7 @@ type: " + termInformation.expectedJsonValueTypes
                 rule:
                   JsonLdDocumentSyntaxErrorRule.UnexpectedJsonLdKeywordValue,
                 message: `Value for the JSON-LD syntax token "${processingContext.currentTerm.name}" of \
-                  "${value.value}" is invalid`,
+"${value.value}" is invalid`,
                 value: processingContext.currentTerm.name,
                 documentPosition: documentOffSetToPosition(
                   value.offset,
@@ -451,26 +451,6 @@ type: " + termInformation.expectedJsonValueTypes
               }
             ];
           }
-        }
-      }
-
-      // TODO should refactor
-      if (value.type === "string") {
-        if (value.value !== "@type" && isJsonLdKeyword(value.value)) {
-          return [
-            {
-              type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
-              rule:
-                JsonLdDocumentSyntaxErrorRule.InvalidJsonLdKeywordAsTermValue,
-              message: `Value for the term is the syntax token of "${value.value}" which is \
-                invalid only @type is supported`,
-              value: processingContext.currentTerm.name,
-              documentPosition: documentOffSetToPosition(
-                value.offset,
-                value.length
-              )
-            }
-          ];
         }
       }
 
@@ -558,7 +538,7 @@ export const processJsonPropertyKey = async (
           type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
           rule: JsonLdDocumentSyntaxErrorRule.UnexpectedUseOfJsonLdKeyword,
           message: `Usage of JSON-LD syntax token "${key.value}" in the JSON-LD \
-          object type of "${processingContext.currentJsonLdObjectType}" is invalid`,
+object type of "${processingContext.currentJsonLdObjectType}" is invalid`,
           value: key.value,
           documentPosition: documentOffSetToPosition(key.offset, key.length)
         }
