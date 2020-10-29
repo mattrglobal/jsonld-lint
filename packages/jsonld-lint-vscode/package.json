@@ -3,7 +3,7 @@
   "description": "JSON-LD Linter for vs code",
   "private": true,
   "license": "Apache-2.0",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "engines": {
     "vscode": "^1.46.1"
   },
@@ -44,6 +44,6 @@
     "vscode-test": "^1.4.0"
   },
   "dependencies": {
-    "jsonld-lint": "0.2.0"
+    "jsonld-lint": "0.3.0"
   }
 }
