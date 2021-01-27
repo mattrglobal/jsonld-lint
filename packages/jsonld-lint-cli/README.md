@@ -18,7 +18,7 @@ With your favorite package manager install
 With [yarn](https://yarnpkg.com/) run
 
 ```
-yarn install jsonld-lint-cli
+yarn add jsonld-lint-cli
 ```
 
 Or [npm](https://www.npmjs.com/) run
