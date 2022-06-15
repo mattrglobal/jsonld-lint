@@ -47,12 +47,12 @@
     "packages listed below resolve high/critical vulnerabilities"
   ],
   "resolutions": {
-    "@commitlint/cli/**/ini": "^1.3.6",
-    "@commitlint/cli/**/ansi-regex": "^5.0.1",
-    "cz-conventional-changelog/**/minimist": "^1.2.6",
-    "cz-conventional-changelog/**/merge": "^2.1.1",
-    "lerna/**/ini": "^1.3.6",
-    "lodash": "^4.17.21"
+    "@commitlint/cli/**/ini": "1.3.6",
+    "@commitlint/cli/**/ansi-regex": "5.0.1",
+    "cz-conventional-changelog/**/minimist": "1.2.6",
+    "cz-conventional-changelog/**/merge": "2.1.1",
+    "lerna/**/ini": "1.3.6",
+    "lodash": "4.17.21"
   },
   "config": {
     "commitizen": {
