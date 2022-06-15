@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           # checkout master explicitly as workflow triggered on a tag which results in checkout of detached HEAD
           ref: master
@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup nodejs
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 16.x
           registry-url: "https://registry.npmjs.org"
