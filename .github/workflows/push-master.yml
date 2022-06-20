@@ -8,14 +8,10 @@ on:
 jobs:
   build_test_publish:
     name: Build, test, and publish unstable release
-    if: "! contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           # checkout master explicitly as workflow triggered on a tag which results in checkout of detached HEAD
           ref: master
@@ -23,9 +19,9 @@ jobs:
           fetch-depth: 0
 
       - name: Setup nodejs
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
-          node-version: 10.x
+          node-version: 16.x
           registry-url: "https://registry.npmjs.org"
 
       - name: Install, lint and build
