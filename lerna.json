@@ -7,7 +7,8 @@
   "command": {
     "publish": {
       "allowBranch": ["master"],
-      "conventionalCommits": true
+      "conventionalCommits": true,
+      "verifyAccess": false
     },
     "version": {
       "allowBranch": ["release"],
