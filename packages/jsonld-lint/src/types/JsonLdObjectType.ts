@@ -52,5 +52,5 @@ export enum JsonLdObjectType {
    *
    * @see https://www.w3.org/TR/json-ld11/#expanded-term-definition
    */
-  ExpandedTermDefinition = "ExpandedTermDefinition"
+  ExpandedTermDefinition = "ExpandedTermDefinition",
 }

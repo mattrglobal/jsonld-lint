@@ -35,7 +35,7 @@ describe("lintCompactDocument", () => {
     await expect(process("this-is-not-json")).rejects.toMatchObject({
       name: JsonLdLintErrorName,
       type: JsonLdLintErrorType.ParsingError,
-      message: "Unable to parse input document as JSON"
+      message: "Unable to parse input document as JSON",
     });
   });
 });

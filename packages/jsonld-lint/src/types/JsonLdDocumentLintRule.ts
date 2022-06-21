@@ -16,5 +16,5 @@
  */
 export enum JsonLdDocumentLintRule {
   UnrecognizedJsonLdKeyword = "jsonld-lint/unrecognized-jsonld-keyword",
-  UnmappedTerm = "jsonld-lint/unmapped-term"
+  UnmappedTerm = "jsonld-lint/unmapped-term",
 }

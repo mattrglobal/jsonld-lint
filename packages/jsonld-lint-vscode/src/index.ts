@@ -20,7 +20,7 @@ import {
   JsonLdDocumentTerm,
   JsonLdDocumentLintResult,
   JsonLdDocumentSyntaxError,
-  JsonLdDocumentProcessingResultType
+  JsonLdDocumentProcessingResultType,
 } from "jsonld-lint";
 
 /**
@@ -43,13 +43,12 @@ export function activate(context: vscode.ExtensionContext) {
   let timeout: NodeJS.Timer | undefined = undefined;
 
   // create a decorator type that we use to decorate small numbers
-  const unmappedPropertyDecorationType = vscode.window.createTextEditorDecorationType(
-    {
+  const unmappedPropertyDecorationType =
+    vscode.window.createTextEditorDecorationType({
       color: {
-        id: "jsonldlint.JsonLdLintResultBackgroundColor"
-      }
-    }
-  );
+        id: "jsonldlint.JsonLdLintResultBackgroundColor",
+      },
+    });
 
   // create a decorator type that we use to decorate small numbers
   const termDecorationType = vscode.window.createTextEditorDecorationType({});
@@ -70,13 +69,13 @@ export function activate(context: vscode.ExtensionContext) {
       const results = await process(text, { contextResolver });
       termDecorations = getTermDecorations(
         results.filter(
-          item => item.type === JsonLdDocumentProcessingResultType.JsonLdTerm
+          (item) => item.type === JsonLdDocumentProcessingResultType.JsonLdTerm
         ) as JsonLdDocumentTerm[]
       );
       lintingDecorations.push(
         ...getLintingDecorations(
           results.filter(
-            item =>
+            (item) =>
               item.type ===
               JsonLdDocumentProcessingResultType.JsonLdLintingResult
           ) as JsonLdDocumentLintResult[]
@@ -85,7 +84,7 @@ export function activate(context: vscode.ExtensionContext) {
       lintingDecorations.push(
         ...getLintingDecorations(
           results.filter(
-            item =>
+            (item) =>
               item.type === JsonLdDocumentProcessingResultType.JsonLdSyntaxError
           ) as JsonLdDocumentSyntaxError[]
         )
@@ -110,7 +109,7 @@ export function activate(context: vscode.ExtensionContext) {
     terms: JsonLdDocumentTerm[]
   ): vscode.DecorationOptions[] => {
     let decorations: vscode.DecorationOptions[] = [];
-    terms.forEach(item => {
+    terms.forEach((item) => {
       const propertyStartPos = activeEditor?.document.positionAt(
         item.documentPosition.startPositionOffset
       );
@@ -121,7 +120,7 @@ export function activate(context: vscode.ExtensionContext) {
         range: new vscode.Range(
           propertyStartPos as vscode.Position,
           propertyEndPos as vscode.Position
-        )
+        ),
       };
       if (item.isJsonLdKeyword) {
         decoration.hoverMessage = `JSON-LD Keyword see ${item.iri}`;
@@ -137,7 +136,7 @@ export function activate(context: vscode.ExtensionContext) {
     lintingResults: JsonLdDocumentSyntaxError[] | JsonLdDocumentLintResult[]
   ): vscode.DecorationOptions[] => {
     let decorations: vscode.DecorationOptions[] = [];
-    lintingResults.forEach(item => {
+    lintingResults.forEach((item) => {
       const propertyStartPos = activeEditor?.document.positionAt(
         item.documentPosition.startPositionOffset
       );
@@ -148,7 +147,7 @@ export function activate(context: vscode.ExtensionContext) {
         range: new vscode.Range(
           propertyStartPos as vscode.Position,
           propertyEndPos as vscode.Position
-        )
+        ),
       };
 
       decoration.hoverMessage = item.message;
@@ -170,7 +169,7 @@ export function activate(context: vscode.ExtensionContext) {
   }
 
   vscode.window.onDidChangeActiveTextEditor(
-    async editor => {
+    async (editor) => {
       activeEditor = editor;
       if (editor && editor.document.languageId === "json") {
         await triggerUpdateDecorations();
@@ -181,7 +180,7 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   vscode.workspace.onDidChangeTextDocument(
-    async event => {
+    async (event) => {
       if (
         activeEditor &&
         event.document === activeEditor.document &&

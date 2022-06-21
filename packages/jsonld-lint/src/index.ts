@@ -18,7 +18,7 @@ import {
   StringASTNode,
   ObjectASTNode,
   ArrayASTNode,
-  JSONDocument
+  JSONDocument,
 } from "vscode-json-languageservice";
 import {
   expand,
@@ -30,7 +30,7 @@ import {
   jsonLdKeywords,
   isJsonLdKeywordAndValidInJsonLdObjectType,
   isValidAsJsonLdKeyword,
-  buildContextResolver
+  buildContextResolver,
 } from "./jsonldDocumentProcessor";
 import { createJsonLdLintError, documentOffSetToPosition } from "./utilities";
 import {
@@ -44,7 +44,7 @@ import {
   JsonLdLintOptions,
   JsonLdDocumentProcessingContext,
   JsonLdDocumentSyntaxErrorRule,
-  ValueValidator
+  ValueValidator,
 } from "./types";
 
 const service = getLanguageService({});
@@ -70,7 +70,7 @@ const setDefaultJsonLdLintOptions = (
   if (!lintingRules) {
     lintingRules = [
       JsonLdDocumentLintRule.UnrecognizedJsonLdKeyword,
-      JsonLdDocumentLintRule.UnmappedTerm
+      JsonLdDocumentLintRule.UnmappedTerm,
     ];
   }
 
@@ -81,7 +81,7 @@ const setDefaultJsonLdLintOptions = (
 
   return {
     lintingRules,
-    contextResolver
+    contextResolver,
   };
 };
 
@@ -97,7 +97,7 @@ export const lint = async (
   options?: JsonLdLintOptions
 ): Promise<JsonLdDocumentProcessingResult[]> =>
   (await process(document, options)).filter(
-    item =>
+    (item) =>
       item.type === JsonLdDocumentProcessingResultType.JsonLdLintingResult ||
       item.type === JsonLdDocumentProcessingResultType.JsonLdSyntaxError
   );
@@ -162,7 +162,7 @@ export const process = async (
   try {
     const processingContext: JsonLdDocumentProcessingContext = {
       document: parsedDocument,
-      contextResolver: options.contextResolver as ContextResolver
+      contextResolver: options.contextResolver as ContextResolver,
     };
 
     return await processJsonObject(processingContext, rootNode);
@@ -228,7 +228,7 @@ export const processJsonObject = async (
         ...processingContext,
         currentJsonLdObjectType,
         jsonLdDocumentContext,
-        unmappedTerms
+        unmappedTerms,
       };
     } catch (ex) {
       return results;
@@ -236,7 +236,7 @@ export const processJsonObject = async (
   } else {
     currentProcessingContext = {
       ...processingContext,
-      currentJsonLdObjectType
+      currentJsonLdObjectType,
     };
   }
 
@@ -306,8 +306,8 @@ export const processJsonProperty = async (
   let currentProcessingContext: JsonLdDocumentProcessingContext = {
     ...processingContext,
     currentTerm: results.find(
-      item => item.type === JsonLdDocumentProcessingResultType.JsonLdTerm
-    ) as JsonLdDocumentTerm
+      (item) => item.type === JsonLdDocumentProcessingResultType.JsonLdTerm
+    ) as JsonLdDocumentTerm,
   };
 
   // Process the JSON value
@@ -360,8 +360,8 @@ type: " + termInformation.expectedJsonValueTypes
             value.offset,
             value.length
           ),
-          value: processingContext.currentTerm.name
-        }
+          value: processingContext.currentTerm.name,
+        },
       ];
     }
   }
@@ -384,15 +384,15 @@ type: " + termInformation.expectedJsonValueTypes
         message: `Value type for the JSON-LD term definition for term "${processingContext.currentTerm.name}" of \
 "${value.type}" is invalid, expected one of: ${validJsonLdTermDefinitionJsonTypes}`,
         documentPosition: documentOffSetToPosition(value.offset, value.length),
-        value: processingContext.currentTerm.name
-      }
+        value: processingContext.currentTerm.name,
+      },
     ];
   }
 
   switch (value.type) {
     case "object": {
       return [
-        ...(await processJsonObject(processingContext, value as ObjectASTNode))
+        ...(await processJsonObject(processingContext, value as ObjectASTNode)),
       ];
     }
     case "array": {
@@ -400,7 +400,7 @@ type: " + termInformation.expectedJsonValueTypes
         ...(await processJsonArrayValue(
           processingContext,
           value as ArrayASTNode
-        ))
+        )),
       ];
     }
     default: {
@@ -423,8 +423,8 @@ type: " + termInformation.expectedJsonValueTypes
               documentPosition: documentOffSetToPosition(
                 value.offset,
                 value.length
-              )
-            }
+              ),
+            },
           ];
         }
 
@@ -439,16 +439,15 @@ type: " + termInformation.expectedJsonValueTypes
             return [
               {
                 type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
-                rule:
-                  JsonLdDocumentSyntaxErrorRule.UnexpectedJsonLdKeywordValue,
+                rule: JsonLdDocumentSyntaxErrorRule.UnexpectedJsonLdKeywordValue,
                 message: `Value for the JSON-LD syntax token "${processingContext.currentTerm.name}" of \
 "${value.value}" is invalid`,
                 value: processingContext.currentTerm.name,
                 documentPosition: documentOffSetToPosition(
                   value.offset,
                   value.length
-                )
-              }
+                ),
+              },
             ];
           }
         }
@@ -494,8 +493,8 @@ export const processJsonPropertyKey = async (
         type: JsonLdDocumentProcessingResultType.JsonLdSyntaxError,
         rule: JsonLdDocumentSyntaxErrorRule.EmptyJsonPropertyKey,
         message: `Empty JSON property encountered`,
-        documentPosition: documentOffSetToPosition(key.offset, key.length)
-      }
+        documentPosition: documentOffSetToPosition(key.offset, key.length),
+      },
     ];
   }
   if (isDuplicatePropertyInObject(object, key.value)) {
@@ -505,8 +504,8 @@ export const processJsonPropertyKey = async (
         rule: JsonLdDocumentSyntaxErrorRule.DuplicatePropertyInJsonObject,
         message: `Duplicate property of "${key.value}" encountered`,
         value: key.value,
-        documentPosition: documentOffSetToPosition(key.offset, key.length)
-      }
+        documentPosition: documentOffSetToPosition(key.offset, key.length),
+      },
     ];
   }
 
@@ -520,8 +519,8 @@ export const processJsonPropertyKey = async (
         rule: JsonLdDocumentSyntaxErrorRule.DuplicateAliasPropertyInJsonObject,
         message: `Duplicate aliased property of JSON-LD term of "${key.value}" encountered`,
         value: key.value,
-        documentPosition: documentOffSetToPosition(key.offset, key.length)
-      }
+        documentPosition: documentOffSetToPosition(key.offset, key.length),
+      },
     ];
   }
 
@@ -540,8 +539,8 @@ export const processJsonPropertyKey = async (
           message: `Usage of JSON-LD syntax token "${key.value}" in the JSON-LD \
 object type of "${processingContext.currentJsonLdObjectType}" is invalid`,
           value: key.value,
-          documentPosition: documentOffSetToPosition(key.offset, key.length)
-        }
+          documentPosition: documentOffSetToPosition(key.offset, key.length),
+        },
       ];
     }
     return [
@@ -550,8 +549,8 @@ object type of "${processingContext.currentJsonLdObjectType}" is invalid`,
         name: key.value,
         iri: jsonLdKeywords.get(key.value)?.iri,
         isJsonLdKeyword: true,
-        documentPosition: documentOffSetToPosition(key.offset, key.length)
-      }
+        documentPosition: documentOffSetToPosition(key.offset, key.length),
+      },
     ];
   }
 
@@ -562,14 +561,14 @@ object type of "${processingContext.currentJsonLdObjectType}" is invalid`,
         rule: JsonLdDocumentLintRule.UnrecognizedJsonLdKeyword,
         message: `The term "${key.value}" matches the convention of a JSON-LD syntax token but is un-recognized`,
         value: key.value,
-        documentPosition: documentOffSetToPosition(key.offset, key.length)
+        documentPosition: documentOffSetToPosition(key.offset, key.length),
       },
       {
         type: JsonLdDocumentProcessingResultType.JsonLdTerm,
         name: key.value,
         isJsonLdKeyword: false,
-        documentPosition: documentOffSetToPosition(key.offset, key.length)
-      }
+        documentPosition: documentOffSetToPosition(key.offset, key.length),
+      },
     ];
   }
 
@@ -592,8 +591,8 @@ object type of "${processingContext.currentJsonLdObjectType}" is invalid`,
         rule: JsonLdDocumentLintRule.UnmappedTerm,
         message: `The term "${key.value}" is not defined in the document context (unmapped)`,
         value: key.value,
-        documentPosition: documentOffSetToPosition(key.offset, key.length)
-      }
+        documentPosition: documentOffSetToPosition(key.offset, key.length),
+      },
     ];
   } else {
     const termInfo = await getTermInfo(
@@ -607,8 +606,8 @@ object type of "${processingContext.currentJsonLdObjectType}" is invalid`,
         isJsonLdKeyword: false,
         iri: termInfo.iri,
         valueTypeIri: termInfo.valueTypeIri,
-        documentPosition: documentOffSetToPosition(key.offset, key.length)
-      }
+        documentPosition: documentOffSetToPosition(key.offset, key.length),
+      },
     ];
   }
 };

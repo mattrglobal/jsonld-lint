@@ -15,7 +15,7 @@ import {
   JsonLdLintErrorType,
   JsonLdLintError,
   JsonLdLintErrorName,
-  DocumentPosition
+  DocumentPosition,
 } from "./types";
 
 /**
@@ -32,7 +32,7 @@ export const documentOffSetToPosition = (
 
   return {
     startPositionOffset,
-    endPositionOffset
+    endPositionOffset,
   };
 };
 
@@ -51,6 +51,6 @@ export const createJsonLdLintError = (
     name: JsonLdLintErrorName,
     type,
     message,
-    details
+    details,
   };
 };

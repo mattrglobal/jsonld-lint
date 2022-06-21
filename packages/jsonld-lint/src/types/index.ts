@@ -14,7 +14,7 @@
 import { JsonLdDocumentTerm } from "./JsonLdDocumentTerm";
 import {
   JsonLdDocumentSyntaxError,
-  JsonLdDocumentSyntaxErrorRule
+  JsonLdDocumentSyntaxErrorRule,
 } from "./JsonLdDocumentSyntaxError";
 import { JsonLdDocumentLintResult } from "./JsonLdDocumentLintResult";
 
@@ -22,7 +22,7 @@ export {
   JsonLdDocumentSyntaxError,
   JsonLdDocumentSyntaxErrorRule,
   JsonLdDocumentTerm,
-  JsonLdDocumentLintResult
+  JsonLdDocumentLintResult,
 };
 
 export type JsonLdDocumentProcessingResult =
@@ -34,7 +34,7 @@ export { DocumentPosition } from "./DocumentPosition";
 export {
   JsonLdLintError,
   JsonLdLintErrorName,
-  JsonLdLintErrorType
+  JsonLdLintErrorType,
 } from "./JsonLdLintError";
 export { JsonLdLintOptions } from "./JsonLdLintOptions";
 export { JsonLdDocumentLintRule } from "./JsonLdDocumentLintRule";
