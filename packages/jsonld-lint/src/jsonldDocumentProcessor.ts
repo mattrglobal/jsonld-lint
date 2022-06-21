@@ -22,7 +22,7 @@ import {
   JsonLdDocumentContext,
   JsonLdObjectType,
   ContextResolver,
-  ValueValidator
+  ValueValidator,
 } from "./types";
 
 /**
@@ -84,8 +84,8 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       name: "@base",
       iri: "https://www.w3.org/TR/json-ld11/#base-iri",
       expectedJsonValueTypes: ["string"],
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
   ],
   [
     "@container",
@@ -96,9 +96,9 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       expectedJsonValues: ["@list", "@language", "@set", "@index", "@id"],
       validInJsonLdObjectTypes: [
         JsonLdObjectType.ExpandedTermDefinition,
-        JsonLdObjectType.LocalContextDefinition
-      ]
-    }
+        JsonLdObjectType.LocalContextDefinition,
+      ],
+    },
   ],
   [
     "@context",
@@ -108,12 +108,12 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       expectedJsonValueTypes: ["string", "array", "object"],
       validInJsonLdObjectTypes: [
         JsonLdObjectType.NodeObject,
-        JsonLdObjectType.ExpandedTermDefinition
+        JsonLdObjectType.ExpandedTermDefinition,
       ],
       valueValidators: new Map<string, ValueValidator>([
-        ["string", isAbsoluteIri]
-      ])
-    }
+        ["string", isAbsoluteIri],
+      ]),
+    },
   ],
   [
     "@direction",
@@ -122,8 +122,8 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       iri: "https://www.w3.org/TR/json-ld11/#base-direction",
       expectedJsonValueTypes: ["string"],
       expectedJsonValues: ["ltr", "rtl"],
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
   ],
   [
     "@graph",
@@ -133,9 +133,9 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       expectedJsonValueTypes: ["array", "object"],
       validInJsonLdObjectTypes: [
         JsonLdObjectType.NodeObject,
-        JsonLdObjectType.LocalContextDefinition
-      ]
-    }
+        JsonLdObjectType.LocalContextDefinition,
+      ],
+    },
   ],
   [
     "@id",
@@ -147,9 +147,9 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       validInJsonLdObjectTypes: [
         JsonLdObjectType.NodeObject,
         JsonLdObjectType.ExpandedTermDefinition,
-        JsonLdObjectType.LocalContextDefinition
-      ]
-    }
+        JsonLdObjectType.LocalContextDefinition,
+      ],
+    },
   ],
   [
     "id",
@@ -161,9 +161,9 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       validInJsonLdObjectTypes: [
         JsonLdObjectType.NodeObject,
         JsonLdObjectType.ExpandedTermDefinition,
-        JsonLdObjectType.LocalContextDefinition
-      ]
-    }
+        JsonLdObjectType.LocalContextDefinition,
+      ],
+    },
   ],
   [
     "@import",
@@ -171,8 +171,8 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       name: "@import",
       iri: "https://www.w3.org/TR/json-ld11/#imported-contexts",
       expectedJsonValueTypes: ["string"],
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
   ],
   [
     "@included",
@@ -180,8 +180,8 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       name: "@included",
       iri: "https://www.w3.org/TR/json-ld11/#included-blocks",
       expectedJsonValueTypes: ["object", "array"], // TODO check if string is actually valid
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
   ],
   [
     "@index",
@@ -189,16 +189,16 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       name: "@index",
       iri: "https://www.w3.org/TR/json-ld11/#property-based-data-indexing",
       expectedJsonValueTypes: ["string"],
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
   ],
   [
     "@json",
     {
       name: "@json",
       iri: "https://www.w3.org/TR/json-ld11/#json-literals",
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
   ],
   [
     "@language",
@@ -206,8 +206,8 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       name: "@language",
       iri: "https://www.w3.org/TR/json-ld11/#string-internationalization",
       expectedJsonValueTypes: ["string"],
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
   ],
   [
     "@list",
@@ -215,8 +215,8 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       name: "@list",
       iri: "https://www.w3.org/TR/json-ld11/#lists",
       expectedJsonValueTypes: ["array"],
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
   ],
   [
     "@nest",
@@ -225,8 +225,8 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       iri: "https://www.w3.org/TR/json-ld11/#nested-properties",
       expectedJsonValueTypes: ["string"],
       expectedJsonValues: ["labels"],
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
   ],
   [
     "@none",
@@ -234,8 +234,8 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       name: "@none",
       iri: "https://www.w3.org/TR/json-ld11/#keywords-and-keywords",
       expectedJsonValueTypes: ["array", "object", "string"],
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
   ],
   [
     "@prefix",
@@ -243,8 +243,8 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       name: "@prefix",
       iri: "https://www.w3.org/TR/json-ld11/#keywords-and-keywords",
       expectedJsonValueTypes: ["boolean"],
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
   ],
   [
     "@propagate",
@@ -252,8 +252,8 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       name: "@propagate",
       iri: "https://www.w3.org/TR/json-ld11/#keywords-and-keywords",
       expectedJsonValueTypes: ["boolean"],
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
   ],
   [
     "@protected",
@@ -261,8 +261,8 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       name: "@protected",
       iri: "https://www.w3.org/TR/json-ld11/#protected-term-definitions",
       expectedJsonValueTypes: ["boolean"],
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
   ],
   [
     "@type",
@@ -274,9 +274,9 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       validInJsonLdObjectTypes: [
         JsonLdObjectType.NodeObject,
         JsonLdObjectType.ExpandedTermDefinition,
-        JsonLdObjectType.LocalContextDefinition
-      ]
-    }
+        JsonLdObjectType.LocalContextDefinition,
+      ],
+    },
   ],
   [
     "type",
@@ -288,9 +288,9 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       validInJsonLdObjectTypes: [
         JsonLdObjectType.NodeObject,
         JsonLdObjectType.ExpandedTermDefinition,
-        JsonLdObjectType.LocalContextDefinition
-      ]
-    }
+        JsonLdObjectType.LocalContextDefinition,
+      ],
+    },
   ],
   [
     "@value",
@@ -298,8 +298,8 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       name: "@value",
       iri: "https://www.w3.org/TR/json-ld11/#typed-values",
       expectedJsonValueTypes: ["string", "number", "boolean"],
-      validInJsonLdObjectTypes: [JsonLdObjectType.ExpandedTermDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.ExpandedTermDefinition],
+    },
   ],
   [
     "@version",
@@ -308,8 +308,8 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       iri: "https://www.w3.org/TR/json-ld11/#json-ld-1-1-processing-mode",
       expectedJsonValueTypes: ["number"],
       expectedJsonValues: [1, 1.0, 1.1],
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
   ],
   [
     "@vocab",
@@ -317,9 +317,9 @@ export const jsonLdKeywords = new Map<string, KnownJsonLdTerm>([
       name: "@vocab",
       iri: "https://www.w3.org/TR/json-ld11/#default-vocabulary",
       expectedJsonValueTypes: ["string"],
-      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition]
-    }
-  ]
+      validInJsonLdObjectTypes: [JsonLdObjectType.LocalContextDefinition],
+    },
+  ],
 ]);
 
 /**
@@ -362,7 +362,7 @@ export const expand = async (document: any): Promise<any> => {
 
   return {
     expandedDocument,
-    unmappedTerms
+    unmappedTerms,
   };
 };
 
@@ -444,7 +444,7 @@ export const getTermInfo = async (
     name: term,
     iri,
     valueTypeIri,
-    isJsonLdKeyword: _isJsonLdKeyword
+    isJsonLdKeyword: _isJsonLdKeyword,
   };
 };
 

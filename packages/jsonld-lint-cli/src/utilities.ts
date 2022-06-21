@@ -19,7 +19,7 @@ import {
   JsonLdDocumentProcessingResult,
   lint as jsonldLint,
   process as processDocument,
-  JsonLdDocumentSyntaxError
+  JsonLdDocumentSyntaxError,
 } from "jsonld-lint";
 
 export const exists = (fileOrDirectoryPath: string): boolean => {
@@ -133,18 +133,19 @@ const formatResults = (
 ) => {
   results
     .filter(
-      item => item.type === JsonLdDocumentProcessingResultType.JsonLdSyntaxError
+      (item) =>
+        item.type === JsonLdDocumentProcessingResultType.JsonLdSyntaxError
     )
-    .forEach(result => {
+    .forEach((result) => {
       formatJsonSyntaxError(filePath, result as JsonLdDocumentSyntaxError);
     });
 
   results
     .filter(
-      item =>
+      (item) =>
         item.type === JsonLdDocumentProcessingResultType.JsonLdLintingResult
     )
-    .forEach(result => {
+    .forEach((result) => {
       formatLintResult(filePath, result as JsonLdDocumentLintResult);
     });
 };
@@ -180,7 +181,7 @@ const fileSearch = async (
         recursive,
         matchedFiles
       );
-      results.forEach(item => {
+      results.forEach((item) => {
         if (!matchedFiles.includes(item)) {
           matchedFiles.push(item);
         }

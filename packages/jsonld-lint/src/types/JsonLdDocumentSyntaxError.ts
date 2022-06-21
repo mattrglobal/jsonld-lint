@@ -14,7 +14,7 @@
 import { DocumentPosition } from "./DocumentPosition";
 import {
   BaseJsonLdDocumentProcessingResult,
-  JsonLdDocumentProcessingResultType
+  JsonLdDocumentProcessingResultType,
 } from "./JsonLdDocumentProcessingResult";
 
 /**
@@ -27,7 +27,7 @@ export enum JsonLdDocumentSyntaxErrorRule {
   DuplicatePropertyInJsonObject = "jsonld-lint/duplicate-property-in-json-object",
   DuplicateAliasPropertyInJsonObject = "jsonld-lint/duplicate-property-in-json-object",
   InvalidJsonLdKeywordAsTermValue = "jsonld-lint/invalid-jsonld-keyword-as-term-value",
-  EmptyJsonPropertyKey = "jsonld-lint/empty-json-property-key"
+  EmptyJsonPropertyKey = "jsonld-lint/empty-json-property-key",
 }
 
 export interface JsonLdDocumentSyntaxError

@@ -14,7 +14,7 @@
 import { DocumentPosition } from "./DocumentPosition";
 import {
   JsonLdDocumentProcessingResultType,
-  BaseJsonLdDocumentProcessingResult
+  BaseJsonLdDocumentProcessingResult,
 } from "./JsonLdDocumentProcessingResult";
 
 /**

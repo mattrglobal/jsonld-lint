@@ -18,7 +18,7 @@ export enum JsonLdDocumentProcessingResultType {
   JsonLdSyntaxError = "jsonld-lint-result/syntax-error",
   JsonLdLintingResult = "jsonld-lint-result/linting-result",
   JsonLdTerm = "jsonld-lint-result/term-definition",
-  JsonLdTermValue = "jsonld-lint-result/term-value"
+  JsonLdTermValue = "jsonld-lint-result/term-value",
 }
 
 /**

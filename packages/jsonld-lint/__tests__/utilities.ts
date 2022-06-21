@@ -25,7 +25,7 @@ export const getTestsFixtures = async (
   }
   const files = await getFilesFromDirectory(directory, filter);
   return files
-    .map(item => item.substring(0, 4))
+    .map((item) => item.substring(0, 4))
     .filter((value, index, self) => {
       return self.indexOf(value) === index;
     });

@@ -17,7 +17,7 @@ export enum JsonLdLintErrorType {
   ParsingError,
   JsonLdDetectionError,
   ProcessingError,
-  JsonLdSyntaxError
+  JsonLdSyntaxError,
 }
 
 export interface JsonLdLintError {

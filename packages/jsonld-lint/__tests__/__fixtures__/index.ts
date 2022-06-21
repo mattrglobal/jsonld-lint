@@ -18,58 +18,59 @@ export const testCases = [
   {
     inputFileName: "0001-in.json",
     outputFileName: "0001-out.json",
-    description: "detect un-mapped terms"
+    description: "detect un-mapped terms",
   },
   {
     inputFileName: "0002-in.json",
     outputFileName: "0002-out.json",
-    description: "detect boolean value type for @context as syntax error"
+    description: "detect boolean value type for @context as syntax error",
   },
   {
     inputFileName: "0003-in.json",
     outputFileName: "0003-out.json",
-    description: "detect numeric value type for @context as syntax error"
+    description: "detect numeric value type for @context as syntax error",
   },
   {
     inputFileName: "0004-in.json",
     outputFileName: "0004-out.json",
-    description: "detect string value type for @version as syntax error"
+    description: "detect string value type for @version as syntax error",
   },
   {
     inputFileName: "0005-in.json",
     outputFileName: "0005-out.json",
-    description: "detect boolean value type for @version as syntax error"
+    description: "detect boolean value type for @version as syntax error",
   },
   {
     inputFileName: "0006-in.json",
     outputFileName: "0006-out.json",
     description:
-      "detect un-expected numeric value type for @version as syntax error"
+      "detect un-expected numeric value type for @version as syntax error",
   },
   {
     inputFileName: "0007-in.json",
     outputFileName: "0007-out.json",
     description:
-      "detect property matching JSON-LD keyword syntax that is not a known keyword"
+      "detect property matching JSON-LD keyword syntax that is not a known keyword",
   },
   {
     inputFileName: "0008-in.json",
     outputFileName: "0008-out.json",
-    description: "detect duplicate aliased properties in object as syntax error"
+    description:
+      "detect duplicate aliased properties in object as syntax error",
   },
   {
     inputFileName: "0009-in.json",
     outputFileName: "0009-out.json",
-    description: "detect duplicate properties in object as syntax error"
+    description: "detect duplicate properties in object as syntax error",
   },
   {
     inputFileName: "0010-in.json",
     outputFileName: "0010-out.json",
-    description: "detect term thats an empty string"
+    description: "detect term thats an empty string",
   },
   {
     inputFileName: "0011-in.json",
     outputFileName: "0011-out.json",
-    description: "detect term with value of syntax token other than @type"
-  }
+    description: "detect term with value of syntax token other than @type",
+  },
 ];
