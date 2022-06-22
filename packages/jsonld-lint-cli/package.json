@@ -3,7 +3,7 @@
   "description": "JSON-LD Linter CLI",
   "license": "Apache-2.0",
   "homepage": "https://github.com/mattrglobal/jsonld-lint",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "lib/index.js",
   "bin": {
     "jsonld-lint": "./bin/index.js"
@@ -30,6 +30,6 @@
   },
   "dependencies": {
     "commander": "6.0.0",
-    "jsonld-lint": "0.3.0"
+    "jsonld-lint": "0.4.0"
   }
 }
