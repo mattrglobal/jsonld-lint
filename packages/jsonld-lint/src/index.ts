@@ -467,15 +467,7 @@ export const processJsonArrayValue = async (
   processingContext: JsonLdDocumentProcessingContext,
   value: ArrayASTNode
 ): Promise<JsonLdDocumentProcessingResult[]> => {
-  const results: JsonLdDocumentProcessingResult[] = [];
-
-  for (let i = 0; i < value.children.length; i++) {
-    results.push(
-      ...(await processJsonValue(processingContext, value.children[i]))
-    );
-  }
-
-  return results;
+  return await Promise.all(value.children.map(async (_) => await processJsonValue(processingContext, _)));
 };
 
 /**
