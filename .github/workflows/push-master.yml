@@ -37,5 +37,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPMJS_PUBLIC_TOKEN }}
         run: |
-          npm whoami
+          git config user.name "Mattr CI"
+          git config user.email "npmjs_ci_mattr_public@mattr.global"
+
           yarn publish:unstable
