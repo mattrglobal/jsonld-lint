@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # checkout master explicitly as workflow triggered on a tag which results in checkout of detached HEAD
           ref: master
@@ -21,9 +21,9 @@ jobs:
           fetch-depth: 0
 
       - name: Setup nodejs
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 22.x
           registry-url: "https://registry.npmjs.org"
 
       - name: Install, lint and build
